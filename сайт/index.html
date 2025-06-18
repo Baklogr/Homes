@@ -40,21 +40,49 @@
             transform: translate(2px, 2px);
         }
 
-        .arrow {
-            font-size: 24px;
-            color: #fff;
-            background-color: #b7410e;
-            border: 2px solid #8b2e0e;
-            padding: 10px;
-            border-radius: 0;
-            box-shadow: 3px 3px 0 #8b2e0e;
-            transition: all 0.2s ease;
+        .arrow-right {
+            width: 20px;
+            height: 20px;
+            border-top: 2px solid #ff6b35;
+            border-right: 2px solid #ff6b35;
+            transform: rotate(45deg);
             margin: 0 20px;
         }
 
-        .arrow:hover {
-            box-shadow: 1px 1px 0 #8b2e0e;
-            transform: translate(2px, 2px);
+        .special-arrow {
+            position: relative;
+            height: 100px;
+            width: 100%;
+        }
+
+        .special-arrow::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 30px;
+            background: #ff6b35;
+        }
+
+        .special-arrow::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            width: 50%;
+            height: 2px;
+            background: #ff6b35;
+            transform: translateX(-100%);
+        }
+
+        .special-arrow .arrow-down {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            height: 30px;
+            background: #ff6b35;
         }
 
         header {
@@ -315,94 +343,12 @@
             flex-direction: column;
             align-items: center;
         }
-        <!--Стилі для секції з цінами-->
-        body {
-            background-color: #f3fafa;
-            padding: 40px;
-            font-family: sans-serif;
-            }
 
-            .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            }
-
-            .card {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.05);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            }
-
-            .card-title {
-            color: orange;
-            font-weight: bold;
-            margin-bottom: 5px;
-            }
-
-            .card-heading {
-            font-size: 22px;
-            color: #031b39;
-            margin: 0 0 15px;
-            }
-
-            .features {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 20px;
-            }
-
-            .features li {
-            margin-bottom: 6px;
-            }
-
-            .bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            }
-
-            .order-btn {
-            background-color: #f90;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            font-weight: bold;
-            cursor: pointer;
-            border-radius: 4px;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-            }
-
-            .price {
-            text-align: right;
-            }
-
-            .price span {
-            font-size: 14px;
-            color: orange;
-            }
-
-            .price strong {
-            font-size: 32px;
-            color: orange;
-            line-height: 1;
-            }
-        <!--Кінець стлів з цінами-->
         .process-row {
             display: flex;
             justify-content: center;
             align-items: center;
             margin-bottom: 20px;
-        }
-
-        .process-arrow {
-            width: 100%;
-            height: 100px;
-            margin: 20px 0;
         }
 
         .process-step {
@@ -466,10 +412,7 @@
                 flex-wrap: wrap;
                 justify-content: center;
             }
-            .arrow {
-                display: none;
-            }
-            .process-arrow {
+            .arrow-right, .special-arrow {
                 display: none;
             }
             .process-step {
@@ -1036,7 +979,7 @@
                         <h3>Залишаєте заявку</h3>
                         <p>Зв'яжіться з нами або залиште заявку на сайті.</p>
                     </div>
-                    <button class="arrow">→</button>
+                    <div class="arrow-right"></div>
                     <div class="process-step">
                         <div class="step-number">2</div>
                         <div class="step-icon">
@@ -1049,7 +992,7 @@
                         <h3>Відповідь на питання</h3>
                         <p>Консультуємо та пропонуємо рішення.</p>
                     </div>
-                    <button class="arrow">→</button>
+                    <div class="arrow-right"></div>
                     <div class="process-step">
                         <div class="step-number">3</div>
                         <div class="step-icon">
@@ -1064,10 +1007,9 @@
                         <p>Обговорюємо метраж і бюджет.</p>
                     </div>
                 </div>
-                <svg class="process-arrow" width="100%" height="100" viewBox="0 0 100 100" preserveAspectRatio="none">
-                    <path d="M90,10 Q50,50 10,90" stroke="#ff6b35" stroke-width="2" fill="none"/>
-                    <polygon points="10,90 15,85 5,85" fill="#ff6b35"/>
-                </svg>
+                <div class="special-arrow">
+                    <div class="arrow-down"></div>
+                </div>
                 <div class="process-row">
                     <div class="process-step">
                         <div class="step-number">4</div>
@@ -1089,7 +1031,7 @@
                         <h3>Дата робіт</h3>
                         <p>Визначаємо зручний час.</p>
                     </div>
-                    <button class="arrow">→</button>
+                    <div class="arrow-right"></div>
                     <div class="process-step">
                         <div class="step-number">5</div>
                         <div class="step-icon">
@@ -1102,7 +1044,7 @@
                         <h3>Утеплення</h3>
                         <p>Виконуємо роботи якісно.</p>
                     </div>
-                    <button class="arrow">→</button>
+                    <div class="arrow-right"></div>
                     <div class="process-step">
                         <div class="step-number">6</div>
                         <div class="step-icon">
@@ -1176,95 +1118,6 @@
             </div>
         </div>
     </section>
-
-    <!--секція з цінами роботи-->
-    
-    <section Class="prices section" id="prices">
-        <h2>Ціни на послуги</h2>
-        <div class="card-grid">
-            <div class="card">
-                <div class="card-title">Утеплення</div>
-                <h2 class="card-heading">Пінопласт 50</h2>
-                <ul class="features">
-                <li>Утеплювач: Пінопласт 50мм</li>
-                <li>Кріплення дюбелем</li>
-                <li>Армування склосіткою</li>
-                <li>Шпаклювання</li>
-                <li>Фарбування в колір будинку</li>
-                </ul>
-                <div class="bottom">
-                <button class="order-btn">Замовити</button>
-                <div class="price">
-                    <span>Від</span><br>
-                    <strong>1200</strong><br>
-                    <span>грн/кв.м</span>
-                </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-title">Утеплення</div>
-                <h2 class="card-heading">Пінопласт 100</h2>
-                <ul class="features">
-                <li>Утеплювач: Пінопласт 100мм</li>
-                <li>Кріплення дюбелем</li>
-                <li>Армування склосіткою</li>
-                <li>Шпаклювання</li>
-                <li>Фарбування в колір будинку</li>
-                </ul>
-                <div class="bottom">
-                <button class="order-btn">Замовити</button>
-                <div class="price">
-                    <span>Від</span><br>
-                    <strong>1350</strong><br>
-                    <span>грн/кв.м</span>
-                </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-title">Утеплення</div>
-                <h2 class="card-heading">Графітовий пінопласт 50</h2>
-                <ul class="features">
-                <li>Утеплювач: Графітовий пінопласт 50мм</li>
-                <li>Кріплення дюбелем</li>
-                <li>Армування склосіткою</li>
-                <li>Шпаклювання</li>
-                <li>Фарбування в колір будинку</li>
-                </ul>
-                <div class="bottom">
-                <button class="order-btn">Замовити</button>
-                <div class="price">
-                    <span>Від</span><br>
-                    <strong>1300</strong><br>
-                    <span>грн/кв.м</span>
-                </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-title">Утеплення</div>
-                <h2 class="card-heading">Графітовий пінопласт 100</h2>
-                <ul class="features">
-                <li>Утеплювач: Графітовий пінопласт 100мм</li>
-                <li>Кріплення дюбелем</li>
-                <li>Армування склосіткою</li>
-                <li>Шпаклювання</li>
-                <li>Фарбування в колір будинку</li>
-                </ul>
-                <div class="bottom">
-                <button class="order-btn">Замовити</button>
-                <div class="price">
-                    <span>Від</span><br>
-                    <strong>1450</strong><br>
-                    <span>грн/кв.м</span>
-                </div>
-                </div>
-            </div>
-            </div>
-    </section>
-
-    <!--секція з цінами роботи-->
 
     <section class="gallery section" id="gallery">
         <h2>Галерея</h2>
