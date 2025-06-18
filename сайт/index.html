@@ -5,6 +5,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WarmFortis</title>
     <style>
+                /* Work Process Styling - Adjusted for uniform window size and arrow */
+        .process-step {
+            background: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+            width: 250px;
+            height: 300px; /* Fixed height for uniform size */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .process-step p {
+            font-size: 14px; /* Reduced font size to fit text */
+            color: #666;
+            line-height: 1.4;
+            padding: 0;
+            background: none;
+            border: none;
+            text-shadow: none;
+            flex-grow: 1; /* Allows text to fill available space */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 4; /* Limits to 4 lines */
+            -webkit-box-orient: vertical;
+        }
+
+        .process-step h3 {
+            font-size: 18px; /* Adjusted for better fit */
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 600;
+            flex-shrink: 0; /* Prevents title from shrinking */
+        }
+
+        .custom-arrow {
+            font-size: 24px;
+            color: #ff6b35;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .custom-arrow .vertical {
+            height: 50px; /* Adjust height as needed */
+        }
+
+        .custom-arrow .horizontal {
+            width: 100px; /* Adjust width to reach middle of 4th step */
+        }
+
+        /* Apply brick-button style to process arrow */
+        .process-arrow {
+            background-color: #b7410e;
+            color: white;
+            border: 2px solid #8b2e0e;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 0;
+            box-shadow: 3px 3px 0 #8b2e0e;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .process-arrow:hover {
+            box-shadow: 1px 1px 0 #8b2e0e;
+            transform: translate(2px, 2px);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .process-row {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .custom-arrow {
+                display: none;
+            }
+            .process-step {
+                margin-bottom: 20px;
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .process-row {
+                flex-direction: column;
+            }
+            .process-step {
+                width: 100%;
+                max-width: 350px;
+            }
+        }
         * {
             margin: 0;
             padding: 0;
@@ -1048,7 +1149,6 @@
     <section class="about-us section" id="about-us">
         <h2 class="section-title">Про нас</h2>
         <p>Наша компанія понад 20 років спеціалізується на професійному утепленні квартир, будинків та будь-яких об'єктів, що потребують теплоізоляції. Виконуємо висотні роботи, герметизацію міжпанельних швів, оздоблення фасадів, фарбування, монтаж козирьків та відливів. Гарантуємо якість, довговічність і комфорт у кожному проєкті.</p>
-        
         <div class="work-process">
             <h2 class="section-title">Як ми працюємо</h2>
             <div class="process-rows">
@@ -1065,9 +1165,9 @@
                             </svg>
                         </div>
                         <h3>Залишаєте заявку</h3>
-                        <p>Зв'яжіться з нами або залиште заявку на сайті.</p>
+                        <p>Зв'яжіться з нами будь-яким зручним способом або залиште заявку на сайті.</p>
                     </div>
-                    <div class="arrow-right"></div>
+                    <div class="arrow">→</div>
                     <div class="process-step">
                         <div class="step-number">2</div>
                         <div class="step-icon">
@@ -1077,10 +1177,10 @@
                                 <text x="30" y="35" text-anchor="middle" fill="#ff6b35" font-size="18" font-weight="bold">?</text>
                             </svg>
                         </div>
-                        <h3>Відповідь на питання</h3>
-                        <p>Консультуємо та пропонуємо рішення.</p>
+                        <h3>Відповідаємо на питання</h3>
+                        <p>Наші фахівці проконсультують вас і запропонують оптимальне рішення.</p>
                     </div>
-                    <div class="arrow-right"></div>
+                    <div class="arrow">→</div>
                     <div class="process-step">
                         <div class="step-number">3</div>
                         <div class="step-icon">
@@ -1091,12 +1191,14 @@
                                 <path d="M15 20L10 15M15 45L10 50" stroke="#ff6b35" stroke-width="2" stroke-linecap="round"/>
                             </svg>
                         </div>
-                        <h3>Узгодження</h3>
-                        <p>Обговорюємо метраж і бюджет.</p>
+                        <h3>Узгоджуємо метраж</h3>
+                        <p>Складаємо детальний план робіт і узгоджуємо всі деталі проєкту.</p>
                     </div>
                 </div>
-                <div class="special-arrow">
-                    <div class="arrow-down"></div>
+                <div class="custom-arrow">
+                    <div class="vertical">↓</div>
+                    <div class="horizontal">←</div>
+                    <div class="vertical">↓</div>
                 </div>
                 <div class="process-row">
                     <div class="process-step">
@@ -1116,10 +1218,10 @@
                                 <path d="M15 43h20" stroke="#ff6b35" stroke-width="2" stroke-linecap="round"/>
                             </svg>
                         </div>
-                        <h3>Дата робіт</h3>
-                        <p>Визначаємо зручний час.</p>
+                        <h3>Визначаємо дату</h3>
+                        <p>Узгоджуємо зручний для вас час початку і тривалість робіт.</p>
                     </div>
-                    <div class="arrow-right"></div>
+                    <div class="arrow">→</div>
                     <div class="process-step">
                         <div class="step-number">5</div>
                         <div class="step-icon">
@@ -1129,10 +1231,10 @@
                                 <path d="M20 45h20" stroke="#ff6b35" stroke-width="2" stroke-linecap="round"/>
                             </svg>
                         </div>
-                        <h3>Утеплення</h3>
-                        <p>Виконуємо роботи якісно.</p>
+                        <h3>Утеплюємо дім</h3>
+                        <p>Виконуємо роботи якісно, акуратно і у встановлені терміни.</p>
                     </div>
-                    <div class="arrow-right"></div>
+                    <div class="arrow">→</div>
                     <div class="process-step">
                         <div class="step-number">6</div>
                         <div class="step-icon">
@@ -1143,37 +1245,9 @@
                                 <text x="30" y="18" text-anchor="middle" fill="#ff6b35" font-size="12" font-weight="bold">$</text>
                             </svg>
                         </div>
-                        <h3>Економія</h3>
-                        <p>Ви заощаджуєте на опаленні.</p>
+                        <h3>Економите на опаленні</h3>
+                        <p>Насолоджуйтесь теплом і комфортом, економлячи на комунальних послугах.</p>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <h2 class="section-title smaller">ЧОМУ ВИ ПОВИННІ ОБРАТИ САМЕ НАС</h2>
-        <div class="advantages-container">
-            <div class="advantages-grid">
-                <div class="advantage-item">
-                    <img src="images/Gar.png" alt="Гарантія 5 років">
-                    <p><strong>Гарантія 5 років</strong>Якісне утеплення з перевіреною надійністю.</p>
-                </div>
-                <div class="advantage-item">
-                    <img src="images/Time.png" alt="Швидкість виконання">
-                    <p><strong>Швидко та якісно</strong>Дотримуємось термінів без компромісів у якості.</p>
-                </div>
-                <div class="advantage-item">
-                    <img src="images/Mat.png" alt="Якісні матеріали">
-                    <p><strong>Сучасні матеріали</strong>Працюємо лише з перевіреними та безпечними технологіями.</p>
-                </div>
-            </div>
-            <div class="advantages-grid last-row">
-                <div class="advantage-item">
-                    <img src="images/8.png" alt="20 років досвіду">
-                    <p><strong>20 років досвіду</strong>Накопичений досвід — запорука надійного результату.</p>
-                </div>
-                <div class="advantage-item">
-                    <img src="images/Rec.png" alt="Рекомендації клієнтів">
-                    <p><strong>50% клієнтів приходять за рекомендацією</strong>Ми працюємо так, щоб нас радили друзям.</p>
                 </div>
             </div>
         </div>
