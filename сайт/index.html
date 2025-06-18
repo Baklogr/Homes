@@ -915,19 +915,27 @@
 
         </div style="text-align: center; margin-top: 20px;">
         <!-- Кнопка -->
-        <div style="text-align: center; margin-top: 20px;">
-            <button class="brick-button" onclick="showMoreImages()">Показати ще</button>
-        </div>
-
         <script>
-        function showMoreImages() {
-            const extraItems = document.querySelectorAll('.extra-images.hidden');
-            extraItems.forEach(item => item.classList.remove('hidden'));
-
-
-            // Сховати кнопку після натискання
+        function toggleImages() {
+            const extraItems = document.querySelectorAll('.extra-images');
             const button = document.getElementById('showMoreBtn');
-            button.style.display = 'none';
+            let anyHidden = false;
+
+            extraItems.forEach(item => {
+                if (item.classList.contains('hidden')) {
+                    item.classList.remove('hidden');
+                    anyHidden = true;
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+
+            // Змінити текст на кнопці
+            if (anyHidden) {
+                button.textContent = 'Приховати';
+            } else {
+                button.textContent = 'Показати ще';
+            }
         }
         </script>
     </section>
