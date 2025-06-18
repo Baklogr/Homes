@@ -288,6 +288,119 @@
             text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
 
+        /* Work Process Styling */
+        .work-process {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .process-rows {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .process-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .arrow {
+            font-size: 24px;
+            color: #ff6b35;
+            margin: 0 20px;
+        }
+
+        .process-arrow-down {
+            font-size: 24px;
+            color: #ff6b35;
+            margin: 20px 0;
+        }
+
+        .process-step {
+            background: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+            width: 250px;
+        }
+
+        .process-step:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b35, #f4a261);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+
+        .step-icon svg {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 20px;
+        }
+
+        .process-step h3 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .process-step p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+            padding: 0;
+            background: none;
+            border: none;
+            text-shadow: none;
+        }
+
+        /* Responsive adjustments for Work Process */
+        @media (max-width: 1024px) {
+            .process-row {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .arrow {
+                display: none;
+            }
+            .process-arrow-down {
+                display: none;
+            }
+            .process-step {
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .process-row {
+                flex-direction: column;
+            }
+            .process-step {
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+
         .advantages-container {
             max-width: 1000px;
             margin: 0 auto;
@@ -800,8 +913,8 @@
             <nav>
                 <ul>
                     <li><a href="#home">Головна</a></li>
-                    <li><a href="#services">Послуги</a></li>
                     <li><a href="#about-us">Про нас</a></li>
+                    <li><a href="#services">Послуги</a></li>
                     <li><a href="#gallery">Галерея</a></li>
                 </ul>
             </nav>
@@ -821,104 +934,109 @@
         </div>
     </section>
 
-     <section class="work-process section" id="work-process">
-        <h2>Як ми працюємо</h2>
-        <div class="process-grid">
-            <div class="process-step">
-                <div class="step-number">1</div>
-                <div class="step-icon">
-                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M50 15H35V10C35 7.24 32.76 5 30 5H15C12.24 5 10 7.24 10 10V50C10 52.76 12.24 55 15 55H50C52.76 55 55 52.76 55 50V20C55 17.24 52.76 15 50 15ZM15 10H30V15H15V10ZM50 50H15V20H50V50Z" fill="#2d5a3d"/>
-                        <path d="M40 30L35 35L45 45" stroke="#2d5a3d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <circle cx="25" cy="30" r="2" fill="#2d5a3d"/>
-                        <circle cx="25" cy="37" r="2" fill="#2d5a3d"/>
-                        <circle cx="25" cy="44" r="2" fill="#2d5a3d"/>
-                    </svg>
-                </div>
-                <h3>Залишаєте заявку</h3>
-                <p>Зв'яжіться з нами будь-яким зручним способом або залиште заявку на сайті</p>
-            </div>
-            
-            <div class="process-step">
-                <div class="step-number">2</div>
-                <div class="step-icon">
-                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="30" cy="30" r="25" stroke="#2d5a3d" stroke-width="3" fill="none"/>
-                        <path d="M30 15v15l10 10" stroke="#2d5a3d" stroke-width="3" stroke-linecap="round"/>
-                        <text x="30" y="35" text-anchor="middle" fill="#2d5a3d" font-size="18" font-weight="bold">?</text>
-                    </svg>
-                </div>
-                <h3>Відповідаємо на питання та знаходимо рішення</h3>
-                <p>Наші фахівці проконсультують вас та запропонують оптимальне рішення</p>
-            </div>
-            
-            <div class="process-step">
-                <div class="step-number">3</div>
-                <div class="step-icon">
-                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="10" y="20" width="40" height="25" rx="3" stroke="#2d5a3d" stroke-width="3" fill="none"/>
-                        <path d="M15 35h30M20 40h20" stroke="#2d5a3d" stroke-width="2" stroke-linecap="round"/>
-                        <path d="M45 20L50 15M45 45L50 50" stroke="#2d5a3d" stroke-width="2" stroke-linecap="round"/>
-                        <path d="M15 20L10 15M15 45L10 50" stroke="#2d5a3d" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                </div>
-                <h3>Обговорюємо та узгоджуємо метраж і бюджет</h3>
-                <p>Складаємо детальний план робіт та узгоджуємо всі деталі проєкту</p>
-            </div>
-            
-            <div class="process-step">
-                <div class="step-number">4</div>
-                <div class="step-icon">
-                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="10" y="10" width="40" height="40" rx="5" stroke="#2d5a3d" stroke-width="3" fill="none"/>
-                        <circle cx="17" cy="17" r="2" fill="#2d5a3d"/>
-                        <circle cx="25" cy="17" r="2" fill="#2d5a3d"/>
-                        <circle cx="33" cy="17" r="2" fill="#2d5a3d"/>
-                        <circle cx="17" cy="25" r="2" fill="#2d5a3d"/>
-                        <circle cx="25" cy="25" r="2" fill="#2d5a3d"/>
-                        <circle cx="33" cy="25" r="2" fill="#2d5a3d"/>
-                        <circle cx="17" cy="33" r="2" fill="#2d5a3d"/>
-                        <circle cx="25" cy="33" r="2" fill="#2d5a3d"/>
-                        <circle cx="33" cy="33" r="2" fill="#2d5a3d"/>
-                        <path d="M15 43h20" stroke="#2d5a3d" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                </div>
-                <h3>Визначаємо дату робіт</h3>
-                <p>Узгоджуємо зручний для вас час початку та тривалість виконання робіт</p>
-            </div>
-            
-            <div class="process-step">
-                <div class="step-number">5</div>
-                <div class="step-icon">
-                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M30 5L35 15H45L37.5 22.5L40 32.5L30 27.5L20 32.5L22.5 22.5L15 15H25L30 5Z" stroke="#2d5a3d" stroke-width="3" fill="none"/>
-                        <rect x="10" y="35" width="40" height="20" rx="5" stroke="#2d5a3d" stroke-width="3" fill="none"/>
-                        <path d="M20 45h20" stroke="#2d5a3d" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                </div>
-                <h3>Утеплюємо ваш дім</h3>
-                <p>Виконуємо роботи якісно, акуратно та у встановлені терміни</p>
-            </div>
-            
-            <div class="process-step">
-                <div class="step-number">6</div>
-                <div class="step-icon">
-                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="30" cy="30" r="20" stroke="#2d5a3d" stroke-width="3" fill="none"/>
-                        <path d="M25 30l5 5L40 25" stroke="#2d5a3d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M15 15h10M45 15h10M15 45h10M45 45h10" stroke="#2d5a3d" stroke-width="2" stroke-linecap="round"/>
-                        <text x="30" y="18" text-anchor="middle" fill="#2d5a3d" font-size="12" font-weight="bold">$</text>
-                    </svg>
-                </div>
-                <h3>Ви починаєте економити на опаленні</h3>
-                <p>Насолоджуйтесь теплом і комфортом, а також економією на комунальних послугах</p>
-            </div>
-        </div>
-    </section>
-
     <section class="about-us section" id="about-us">
         <h2 class="section-title">Про нас</h2>
         <p>Наша компанія понад 20 років спеціалізується на професійному утепленні квартир, будинків та будь-яких об'єктів, що потребують теплоізоляції. Виконуємо висотні роботи, герметизацію міжпанельних швів, оздоблення фасадів, фарбування, монтаж козирьків та відливів. Гарантуємо якість, довговічність і комфорт у кожному проєкті.</p>
+        
+        <div class="work-process">
+            <h2 class="section-title">Як ми працюємо</h2>
+            <div class="process-rows">
+                <div class="process-row">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div class="step-icon">
+                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M50 15H35V10C35 7.24 32.76 5 30 5H15C12.24 5 10 7.24 10 10V50C10 52.76 12.24 55 15 55H50C52.76 55 55 52.76 55 50V20C55 17.24 52.76 15 50 15ZM15 10H30V15H15V10ZM50 50H15V20H50V50Z" fill="#ff6b35"/>
+                                <path d="M40 30L35 35L45 45" stroke="#ff6b35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="25" cy="30" r="2" fill="#ff6b35"/>
+                                <circle cx="25" cy="37" r="2" fill="#ff6b35"/>
+                                <circle cx="25" cy="44" r="2" fill="#ff6b35"/>
+                            </svg>
+                        </div>
+                        <h3>Залишаєте заявку</h3>
+                        <p>Зв'яжіться з нами будь-яким зручним способом або залиште заявку на сайті</p>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div class="step-icon">
+                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="30" cy="30" r="25" stroke="#ff6b35" stroke-width="3" fill="none"/>
+                                <path d="M30 15v15l10 10" stroke="#ff6b35" stroke-width="3" stroke-linecap="round"/>
+                                <text x="30" y="35" text-anchor="middle" fill="#ff6b35" font-size="18" font-weight="bold">?</text>
+                            </svg>
+                        </div>
+                        <h3>Відповідаємо на питання та знаходимо рішення</h3>
+                        <p>Наші фахівці проконсультують вас та запропонують оптимальне рішення</p>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div class="step-icon">
+                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="10" y="20" width="40" height="25" rx="3" stroke="#ff6b35" stroke-width="3" fill="none"/>
+                                <path d="M15 35h30M20 40h20" stroke="#ff6b35" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M45 20L50 15M45 45L50 50" stroke="#ff6b35" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M15 20L10 15M15 45L10 50" stroke="#ff6b35" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3>Обговорюємо та узгоджуємо метраж і бюджет</h3>
+                        <p>Складаємо детальний план робіт та узгоджуємо всі деталі проєкту</p>
+                    </div>
+                </div>
+                <div class="process-arrow-down">↓</div>
+                <div class="process-row">
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <div class="step-icon">
+                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="10" y="10" width="40" height="40" rx="5" stroke="#ff6b35" stroke-width="3" fill="none"/>
+                                <circle cx="17" cy="17" r="2" fill="#ff6b35"/>
+                                <circle cx="25" cy="17" r="2" fill="#ff6b35"/>
+                                <circle cx="33" cy="17" r="2" fill="#ff6b35"/>
+                                <circle cx="17" cy="25" r="2" fill="#ff6b35"/>
+                                <circle cx="25" cy="25" r="2" fill="#ff6b35"/>
+                                <circle cx="33" cy="25" r="2" fill="#ff6b35"/>
+                                <circle cx="17" cy="33" r="2" fill="#ff6b35"/>
+                                <circle cx="25" cy="33" r="2" fill="#ff6b35"/>
+                                <circle cx="33" cy="33" r="2" fill="#ff6b35"/>
+                                <path d="M15 43h20" stroke="#ff6b35" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3>Визначаємо дату робіт</h3>
+                        <p>Узгоджуємо зручний для вас час початку та тривалість виконання робіт</p>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="process-step">
+                        <div class="step-number">5</div>
+                        <div class="step-icon">
+                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M30 5L35 15H45L37.5 22.5L40 32.5L30 27.5L20 32.5L22.5 22.5L15 15H25L30 5Z" stroke="#ff6b35" stroke-width="3" fill="none"/>
+                                <rect x="10" y="35" width="40" height="20" rx="5" stroke="#ff6b35" stroke-width="3" fill="none"/>
+                                <path d="M20 45h20" stroke="#ff6b35" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3>Утеплюємо ваш дім</h3>
+                        <p>Виконуємо роботи якісно, акуратно та у встановлені терміни</p>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="process-step">
+                        <div class="step-number">6</div>
+                        <div class="step-icon">
+                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="30" cy="30" r="20" stroke="#ff6b35" stroke-width="3" fill="none"/>
+                                <path d="M25 30l5 5L40 25" stroke="#ff6b35" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M15 15h10M45 15h10M15 45h10M45 45h10" stroke="#ff6b35" stroke-width="2" stroke-linecap="round"/>
+                                <text x="30" y="18" text-anchor="middle" fill="#ff6b35" font-size="12" font-weight="bold">$</text>
+                            </svg>
+                        </div>
+                        <h3>Ви починаєте економити на опаленні</h3>
+                        <p>Насолоджуйтесь теплом і комфортом, а також економією на комунальних послугах</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <h2 class="section-title smaller">ЧОМУ ВИ ПОВИННІ ОБРАТИ САМЕ НАС</h2>
         <div class="advantages-container">
             <div class="advantages-grid">
@@ -1007,40 +1125,15 @@
             <div class="gallery-item extra-images hidden" onclick="openModal('images/Gal13.jpg')"><img src="images/Gal13.jpg" alt="Фото 13"></div>
             <div class="gallery-item extra-images hidden" onclick="openModal('images/Gal14.jpg')"><img src="images/Gal14.jpg" alt="Фото 14"></div>
             <div class="gallery-item extra-images hidden" onclick="openModal('images/Gal15.jpg')"><img src="images/Gal15.jpg" alt="Фото 15"></div>
-
-        </div style="text-align: center; margin-top: 20px;">
-        <!-- Кнопка -->
-         <div style="text-align: center; margin-top: 20px;">
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
             <button id="showMoreBtn" class="brick-button" onclick="toggleImages()">Показати ще</button>
         </div>
-        <script>
-        function toggleImages() {
-            const extraItems = document.querySelectorAll('.extra-images');
-            const button = document.getElementById('showMoreBtn');
-            let anyHidden = false;
-
-            extraItems.forEach(item => {
-                if (item.classList.contains('hidden')) {
-                    item.classList.remove('hidden');
-                    anyHidden = true;
-                } else {
-                    item.classList.add('hidden');
-                }
-            });
-
-            // Змінити текст на кнопці
-            if (anyHidden) {
-                button.textContent = 'Приховати';
-            } else {
-                button.textContent = 'Показати ще';
-            }
-        }
-        </script>
     </section>
 
     <!-- The Modal -->
     <div id="imageModal" class="modal">
-        <span class="close" onclick="closeModal()">&times;</span>
+        <span class="close" onclick="closeModal()">×</span>
         <img class="modal-content" id="modalImage">
     </div>
 
@@ -1072,6 +1165,27 @@
             this.reset();
         });
 
+        function toggleImages() {
+            const extraItems = document.querySelectorAll('.extra-images');
+            const button = document.getElementById('showMoreBtn');
+            let anyHidden = false;
+
+            extraItems.forEach(item => {
+                if (item.classList.contains('hidden')) {
+                    item.classList.remove('hidden');
+                    anyHidden = true;
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+
+            if (anyHidden) {
+                button.textContent = 'Приховати';
+            } else {
+                button.textContent = 'Показати ще';
+            }
+        }
+
         // Modal functionality for gallery
         function openModal(imgSrc) {
             const modal = document.getElementById('imageModal');
@@ -1080,7 +1194,6 @@
             modalImg.src = imgSrc;
             document.body.style.overflow = 'hidden';
             
-            // Add event listener for ESC key
             document.addEventListener('keydown', handleKeyPress);
         }
 
@@ -1089,7 +1202,6 @@
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
             
-            // Remove event listener for ESC key
             document.removeEventListener('keydown', handleKeyPress);
         }
 
@@ -1099,7 +1211,6 @@
             }
         }
 
-        // Close modal when clicking outside the image
         window.onclick = function(event) {
             const modal = document.getElementById('imageModal');
             if (event.target == modal) {
