@@ -18,6 +18,9 @@
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             min-height: 100vh;
         }
+        .hidden {
+            display: none;
+        }
 
         /* Header */
         header {
@@ -878,7 +881,49 @@
             <div class="gallery-item" onclick="openModal('images/Gal6.jpg')">
                 <img src="images/Gal6.jpg" alt="Фото 6">
             </div>
+
+            <!--Прихована частина-->
+            <div class="gallery-item" onclick="openModal('images/Gal6.jpg')">
+                <img src="images/Gal6.jpg" alt="Фото 7">
+            </div>
+            <div class="gallery-item" onclick="openModal('images/Gal7.jpg')">
+                <img src="images/Gal7.jpg" alt="Фото 8">
+            </div>
+            <div class="gallery-item" onclick="openModal('images/Gal8.jpg')">
+                <img src="images/Gal8.jpg" alt="Фото 9">
+            </div>
+            <div class="gallery-item" onclick="openModal('images/Gal9.jpg')">
+                <img src="images/Gal9.jpg" alt="Фото 10">
+            </div>
+            <div class="gallery-item" onclick="openModal('images/Gal10.jpg')">
+                <img src="images/Gal10.jpg" alt="Фото 11">
+            </div>
+            <div class="gallery-item" onclick="openModal('images/Gal11.jpg')">
+                <img src="images/Gal11.jpg" alt="Фото 12">
+            </div>
+            <div class="gallery-item" onclick="openModal('images/Gal12.jpg')">
+                <img src="images/Gal12.jpg" alt="Фото 13">
+            </div>
+            <div class="gallery-item" onclick="openModal('images/Gal13.jpg')">
+                <img src="images/Gal13.jpg" alt="Фото 14">
+            </div>
+            <div class="gallery-item" onclick="openModal('images/Gal14.jpg')">
+                <img src="images/Gal14.jpg" alt="Фото 15">
+            </div>
         </div>
+        <!-- Кнопка -->
+        <div style="text-align: center; margin-top: 20px;">
+            <button onclick="showMoreImages()">Показати ще</button>
+        </div>
+        <script>
+        function showMoreImages() {
+            const hiddenItems = document.querySelectorAll('.gallery-item.hidden');
+            hiddenItems.forEach(item => item.classList.remove('hidden'));
+
+            // Приховати кнопку після відкриття
+            event.target.style.display = 'none';
+        }
+        </script>
     </section>
 
     <!-- The Modal -->
