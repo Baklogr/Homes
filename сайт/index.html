@@ -23,13 +23,13 @@
         }
         
         .brick-button {
-            background-color: #b7410e; /* цегляний колір */
+            background-color: #b7410e;
             color: white;
             border: 2px solid #8b2e0e;
             padding: 15px 40px;
             font-size: 18px;
             font-weight: bold;
-            border-radius: 0; /* без округлення */
+            border-radius: 0;
             box-shadow: 3px 3px 0 #8b2e0e;
             cursor: pointer;
             transition: all 0.2s ease;
@@ -39,7 +39,24 @@
             box-shadow: 1px 1px 0 #8b2e0e;
             transform: translate(2px, 2px);
         }
-        /* Header */
+
+        .arrow {
+            font-size: 24px;
+            color: #fff;
+            background-color: #b7410e;
+            border: 2px solid #8b2e0e;
+            padding: 10px;
+            border-radius: 0;
+            box-shadow: 3px 3px 0 #8b2e0e;
+            transition: all 0.2s ease;
+            margin: 0 20px;
+        }
+
+        .arrow:hover {
+            box-shadow: 1px 1px 0 #8b2e0e;
+            transform: translate(2px, 2px);
+        }
+
         header {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
@@ -120,7 +137,6 @@
             box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
         }
 
-        /* Hero Section */
         .hero {
             height: 100vh;
             display: flex;
@@ -219,7 +235,6 @@
             filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
         }
 
-        /* Section Styling */
         .section {
             padding: 80px 20px;
             position: relative;
@@ -259,7 +274,6 @@
             border-radius: 2px;
         }
 
-        /* About Us Section */
         .about-us {
             background: 
                 linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
@@ -288,7 +302,6 @@
             text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
 
-        /* Work Process Styling */
         .work-process {
             background: rgba(255, 255, 255, 0.9);
             padding: 40px;
@@ -310,15 +323,9 @@
             margin-bottom: 20px;
         }
 
-        .arrow {
-            font-size: 24px;
-            color: #ff6b35;
-            margin: 0 20px;
-        }
-
-        .process-arrow-down {
-            font-size: 24px;
-            color: #ff6b35;
+        .process-arrow {
+            width: 100%;
+            height: 100px;
             margin: 20px 0;
         }
 
@@ -330,6 +337,10 @@
             transition: all 0.3s ease;
             text-align: center;
             width: 250px;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .process-step:hover {
@@ -374,7 +385,6 @@
             text-shadow: none;
         }
 
-        /* Responsive adjustments for Work Process */
         @media (max-width: 1024px) {
             .process-row {
                 flex-wrap: wrap;
@@ -383,7 +393,7 @@
             .arrow {
                 display: none;
             }
-            .process-arrow-down {
+            .process-arrow {
                 display: none;
             }
             .process-step {
@@ -465,7 +475,6 @@
             margin-bottom: 8px;
         }
 
-        /* Services Section */
         .services {
             background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
             padding: 80px 20px;
@@ -575,7 +584,6 @@
             line-height: 1.6;
         }
 
-        /* Gallery Section */
         .gallery {
             background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
             padding: 80px 20px;
@@ -644,7 +652,6 @@
             display: block;
         }
 
-        /* Modal for gallery images */
         .modal {
             display: none;
             position: fixed;
@@ -692,7 +699,6 @@
             transform: scale(1.2);
         }
 
-        /* Contact Section */
         .contact {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: #fff;
@@ -775,7 +781,6 @@
             box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
         }
 
-        /* Footer */
         footer {
             background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
             color: #fff;
@@ -808,7 +813,6 @@
             opacity: 0.8;
         }
 
-        /* Responsive Design */
         @media (max-width: 1024px) {
             .hero {
                 padding: 0 60px 0 100px;
@@ -954,8 +958,9 @@
                             </svg>
                         </div>
                         <h3>Залишаєте заявку</h3>
+                        <p>Зв'яжіться з нами або залиште заявку на сайті.</p>
                     </div>
-                    <div class="arrow">→</div>
+                    <button class="arrow">→</button>
                     <div class="process-step">
                         <div class="step-number">2</div>
                         <div class="step-icon">
@@ -965,9 +970,10 @@
                                 <text x="30" y="35" text-anchor="middle" fill="#ff6b35" font-size="18" font-weight="bold">?</text>
                             </svg>
                         </div>
-                        <h3>Відповідаємо на питання та знаходимо рішення</h3>
+                        <h3>Відповідь на питання</h3>
+                        <p>Консультуємо та пропонуємо рішення.</p>
                     </div>
-                    <div class="arrow">→</div>
+                    <button class="arrow">→</button>
                     <div class="process-step">
                         <div class="step-number">3</div>
                         <div class="step-icon">
@@ -978,10 +984,14 @@
                                 <path d="M15 20L10 15M15 45L10 50" stroke="#ff6b35" stroke-width="2" stroke-linecap="round"/>
                             </svg>
                         </div>
-                        <h3>Обговорюємо та узгоджуємо метраж і бюджет</h3>
+                        <h3>Узгодження</h3>
+                        <p>Обговорюємо метраж і бюджет.</p>
                     </div>
                 </div>
-                <div class="process-arrow-down">↓</div>
+                <svg class="process-arrow" width="100%" height="100" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <path d="M90,10 Q50,50 10,90" stroke="#ff6b35" stroke-width="2" fill="none"/>
+                    <polygon points="10,90 15,85 5,85" fill="#ff6b35"/>
+                </svg>
                 <div class="process-row">
                     <div class="process-step">
                         <div class="step-number">4</div>
@@ -1000,9 +1010,10 @@
                                 <path d="M15 43h20" stroke="#ff6b35" stroke-width="2" stroke-linecap="round"/>
                             </svg>
                         </div>
-                        <h3>Визначаємо дату робіт</h3>
+                        <h3>Дата робіт</h3>
+                        <p>Визначаємо зручний час.</p>
                     </div>
-                    <div class="arrow">→</div>
+                    <button class="arrow">→</button>
                     <div class="process-step">
                         <div class="step-number">5</div>
                         <div class="step-icon">
@@ -1012,9 +1023,10 @@
                                 <path d="M20 45h20" stroke="#ff6b35" stroke-width="2" stroke-linecap="round"/>
                             </svg>
                         </div>
-                        <h3>Утеплюємо ваш дім</h3>
+                        <h3>Утеплення</h3>
+                        <p>Виконуємо роботи якісно.</p>
                     </div>
-                    <div class="arrow">→</div>
+                    <button class="arrow">→</button>
                     <div class="process-step">
                         <div class="step-number">6</div>
                         <div class="step-icon">
@@ -1025,7 +1037,8 @@
                                 <text x="30" y="18" text-anchor="middle" fill="#ff6b35" font-size="12" font-weight="bold">$</text>
                             </svg>
                         </div>
-                        <h3>Ви починаєте економити на опаленні</h3>
+                        <h3>Економія</h3>
+                        <p>Ви заощаджуєте на опаленні.</p>
                     </div>
                 </div>
             </div>
@@ -1109,7 +1122,6 @@
             <div class="gallery-item" onclick="openModal('images/Gal6.jpg')">
                 <img src="images/Gal6.jpg" alt="Фото 6">
             </div>
-            <!--Приховані кнопки-->
             <div class="gallery-item extra-images hidden" onclick="openModal('images/Gal7.jpg')"><img src="images/Gal7.jpg" alt="Фото 7"></div>
             <div class="gallery-item extra-images hidden" onclick="openModal('images/Gal8.jpg')"><img src="images/Gal8.jpg" alt="Фото 8"></div>
             <div class="gallery-item extra-images hidden" onclick="openModal('images/Gal9.jpg')"><img src="images/Gal9.jpg" alt="Фото 9"></div>
@@ -1125,7 +1137,6 @@
         </div>
     </section>
 
-    <!-- The Modal -->
     <div id="imageModal" class="modal">
         <span class="close" onclick="closeModal()">×</span>
         <img class="modal-content" id="modalImage">
@@ -1180,7 +1191,6 @@
             }
         }
 
-        // Modal functionality for gallery
         function openModal(imgSrc) {
             const modal = document.getElementById('imageModal');
             const modalImg = document.getElementById('modalImage');
