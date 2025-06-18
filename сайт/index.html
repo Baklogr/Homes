@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WarmFortis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff6b35, #f4a261);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: #ff6b35;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: linear-gradient(45deg, #ff6b35, #f4a261);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .contact-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: #fff;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 80px;
+            position: relative;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow: hidden;
+            padding: 0 100px 0 150px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><defs><radialGradient id="a" cx="50%" cy="0%" r="100%"><stop offset="0%" stop-color="rgba(255,255,255,0.1)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/></radialGradient></defs><rect width="100" height="20" fill="url(%23a)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            flex: 1;
+            padding: 0 40px;
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+        }
+
+        .hero-content .company-name {
+            font-size: 32px;
+            color: #fff;
+            margin-bottom: 15px;
+            font-weight: 300;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #fff;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+
+        .hero-content .location {
+            font-size: 18px;
+            color: rgba(255,255,255,0.9);
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .hero-content .location::before {
+            content: '📍';
+            margin-right: 8px;
+            font-size: 20px;
+        }
+
+        .hero-content .cta-btn {
+            background: linear-gradient(45deg, #ff6b35, #f4a261);
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
+            display: inline-block;
+        }
+
+        .hero-content .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            padding: 40px;
+            height: 100%;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 80px 20px;
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section:nth-child(even) {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        }
+
+        .section:nth-child(odd) {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+
+        .section-title {
+            font-size: 42px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            font-weight: 700;
+        }
+
+        .section-title.smaller {
+            font-size: 32px;
+            margin-top: 60px;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #ff6b35, #f4a261);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        /* About Us Section */
+        .about-us {
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
+                url('images/Gal1.jpg') center/cover no-repeat;
+            color: #fff;
+            padding: 100px 20px;
+        }
+
+        .about-us .section-title {
+            color: #fff;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .about-us p {
+            max-width: 900px;
+            margin: 0 auto 60px auto;
+            font-size: 20px;
+            text-align: center;
+            line-height: 1.8;
+            color: #fff;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .advantages-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .advantages-grid.last-row {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .advantages-grid.last-row .advantage-item {
+            width: calc(50% - 15px);
+            max-width: 350px;
+        }
+
+        .advantage-item {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .advantage-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .advantage-item img {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.3));
+        }
+
+        .advantage-item p {
+            font-size: 17px;
+            line-height: 1.6;
+            color: #fff;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            background: transparent;
+            padding: 0;
+            backdrop-filter: none;
+            border: none;
+        }
+
+        .advantage-item p strong {
+            font-size: 19px;
+            color: #f4a261;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* Services Section */
+        .services {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 80px 20px;
+        }
+
+        .services h2 {
+            font-size: 42px;
+            color: #333;
+            margin-bottom: 60px;
+            text-align: center;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .services h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #ff6b35, #f4a261);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services-extra {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: none;
+            max-width: 350px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(45deg, #ff6b35, #f4a261);
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .service-card h3 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .service-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(45deg, #ff6b35, #f4a261);
+        }
+
+        .service-card p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 80px 20px;
+        }
+
+        .gallery h2 {
+            font-size: 42px;
+            color: #333;
+            margin-bottom: 60px;
+            text-align: center;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .gallery h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #ff6b35, #f4a261);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+
+        .gallery-item:hover::before {
+            opacity: 1;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Modal for gallery images */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow: auto;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            margin: auto;
+            animation: zoom 0.3s;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+
+        @keyframes zoom {
+            from {transform: scale(0.5); opacity: 0;}
+            to {transform: scale(1); opacity: 1;}
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+            text-shadow: 0 0 10px rgba(0,0,0,0.5);
+            z-index: 1;
+        }
+
+        .close:hover {
+            color: #f4a261;
+            transform: scale(1.2);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 60px 20px;
+        }
+
+        .contact h2 {
+            font-size: 42px;
+            color: #fff;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .contact h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #ff6b35, #f4a261);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 18px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            transform: translateY(-2px);
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #888;
+        }
+
+        .contact-form button {
+            background: linear-gradient(45deg, #ff6b35, #f4a261);
+            color: #fff;
+            padding: 16px 40px;
+            border: none;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .contact-form button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content p {
+            margin-bottom: 25px;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .social-links a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero {
+                padding: 0 60px 0 100px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .advantages-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .advantages-grid.last-row {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .advantages-grid.last-row .advantage-item {
+                width: 100%;
+                max-width: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+                padding: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 20px;
+                height: auto;
+                min-height: 100vh;
+            }
+
+            .hero-content {
+                padding: 0;
+                margin-bottom: 40px;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .hero-image {
+                padding: 20px;
+                height: auto;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .advantages-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .advantages-grid.last-row {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-extra {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item img {
+                height: 250px;
+            }
+            
+            .about-us p {
+                padding: 20px;
+                font-size: 18px;
+            }
+            
+            .contact-form {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">WarmFortis</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Головна</a></li>
+                    <li><a href="#services">Послуги</a></li>
+                    <li><a href="#about-us">Про нас</a></li>
+                    <li><a href="#gallery">Галерея</a></li>
+                </ul>
+            </nav>
+            <a href="#contact" class="contact-btn">Зв'язатися з нами</a>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="company-name">WarmFortis</div>
+            <h1>Тепло, що захищає ваш дім</h1>
+            <div class="location">м. Київ</div>
+            <a href="#contact" class="cta-btn">Замовити консультацію</a>
+        </div>
+        <div class="hero-image">
+            <img src="images/zag.png" alt="Утеплення будинку">
+        </div>
+    </section>
+
+    <section class="about-us section" id="about-us">
+        <h2 class="section-title">Про нас</h2>
+        <p>Наша компанія понад 20 років спеціалізується на професійному утепленні квартир, будинків та будь-яких об'єктів, що потребують теплоізоляції. Виконуємо висотні роботи, герметизацію міжпанельних швів, оздоблення фасадів, фарбування, монтаж козирьків та відливів. Гарантуємо якість, довговічність і комфорт у кожному проєкті.</p>
+        <h2 class="section-title smaller">ЧОМУ ВИ ПОВИННІ ОБРАТИ САМЕ НАС</h2>
+        <div class="advantages-container">
+            <div class="advantages-grid">
+                <div class="advantage-item">
+                    <img src="images/Gar.png" alt="Гарантія 5 років">
+                    <p><strong>Гарантія 5 років</strong>Якісне утеплення з перевіреною надійністю.</p>
+                </div>
+                <div class="advantage-item">
+                    <img src="images/Time.png" alt="Швидкість виконання">
+                    <p><strong>Швидко та якісно</strong>Дотримуємось термінів без компромісів у якості.</p>
+                </div>
+                <div class="advantage-item">
+                    <img src="images/Mat.png" alt="Якісні матеріали">
+                    <p><strong>Сучасні матеріали</strong>Працюємо лише з перевіреними та безпечними технологіями.</p>
+                </div>
+            </div>
+            <div class="advantages-grid last-row">
+                <div class="advantage-item">
+                    <img src="images/8.png" alt="20 років досвіду">
+                    <p><strong>20 років досвіду</strong>Накопичений досвід — запорука надійного результату.</p>
+                </div>
+                <div class="advantage-item">
+                    <img src="images/Rec.png" alt="Рекомендації клієнтів">
+                    <p><strong>50% клієнтів приходять за рекомендацією</strong>Ми працюємо так, щоб нас радили друзям.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services section" id="services">
+        <h2>Наші послуги</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="images/KV.jpg" alt="Утеплення квартир і домів">
+                <h3>Утеплення домів і квартир</h3>
+                <p>Зовнішнє утеплення стін для максимальної енергоефективності.</p>
+            </div>
+            <div class="service-card">
+                <img src="images/fasad.jpg" alt="Фарбування та оздоблення фасадів">
+                <h3>Фарбування та оздоблення фасадів</h3>
+                <p>Професійне оновлення та захист фасадів із тривалим ефектом.</p>
+            </div>
+            <div class="service-card">
+                <img src="images/Germ.jpg" alt="Герметизація швів">
+                <h3>Герметизація швів</h3>
+                <p>Надійна ізоляція для збереження тепла та запобігання протікань.</p>
+            </div>
+        </div>
+        <div class="services-extra">
+            <div class="service-card">
+                <img src="images/Mont.jpg" alt="Монтаж козирьків та відливів">
+                <h3>Монтаж козирьків та відливів</h3>
+                <p>Якісний монтаж для захисту від вологи та естетичного вигляду.</p>
+            </div>
+            <div class="service-card">
+                <img src="images/Vis.jpg" alt="Висотні роботи">
+                <h3>Висотні роботи</h3>
+                <p>Безпечне та професійне виконання робіт на висоті для будь-яких об'єктів.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery section" id="gallery">
+        <h2>Галерея</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item" onclick="openModal('images/Gal1.jpg')">
+                <img src="images/Gal1.jpg" alt="Фото 1">
+            </div>
+            <div class="gallery-item" onclick="openModal('images/Gal2.jpg')">
+                <img src="images/Gal2.jpg" alt="Фото 2">
+            </div>
+            <div class="gallery-item" onclick="openModal('images/Gal3.jpg')">
+                <img src="images/Gal3.jpg" alt="Фото 3">
+            </div>
+            <div class="gallery-item" onclick="openModal('images/Gal4.jpg')">
+                <img src="images/Gal4.jpg" alt="Фото 4">
+            </div>
+            <div class="gallery-item" onclick="openModal('images/Gal5.jpg')">
+                <img src="images/Gal5.jpg" alt="Фото 5">
+            </div>
+            <div class="gallery-item" onclick="openModal('images/Gal6.jpg')">
+                <img src="images/Gal6.jpg" alt="Фото 6">
+            </div>
+        </div>
+    </section>
+
+    <!-- The Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <section class="contact section" id="contact">
+        <h2>Зв'яжіться з нами</h2>
+        <form class="contact-form" id="contact-form">
+            <input type="text" name="name" placeholder="Ваше ім'я" required>
+            <input type="tel" name="phone" placeholder="Ваш телефон" required>
+            <textarea name="message" placeholder="Ваше повідомлення" rows="5" required></textarea>
+            <button type="submit">Відправити</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2025 WarmFortis. Усі права захищено.</p>
+            <div class="social-links">
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">Telegram</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Форма відправлена! Ми зв\'яжемося з вами незабаром.');
+            this.reset();
+        });
+
+        // Modal functionality for gallery
+        function openModal(imgSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = 'flex';
+            modalImg.src = imgSrc;
+            document.body.style.overflow = 'hidden';
+            
+            // Add event listener for ESC key
+            document.addEventListener('keydown', handleKeyPress);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            
+            // Remove event listener for ESC key
+            document.removeEventListener('keydown', handleKeyPress);
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        }
+
+        // Close modal when clicking outside the image
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
