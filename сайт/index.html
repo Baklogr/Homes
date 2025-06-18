@@ -362,18 +362,19 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 40px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .services-extra {
-            display: flex;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             gap: 40px;
             margin-top: 40px;
-            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 40px auto 0;
         }
 
         .service-card {
@@ -408,7 +409,8 @@
             height: 220px;
             object-fit: cover;
             border-radius: 15px;
-            margin-bottom: 20px;
+            margin: 0 auto 20px auto;
+            display: block;
             transition: transform 0.3s ease;
         }
 
@@ -855,7 +857,7 @@
             <div class="service-card">
                 <img src="images/Vis.jpg" alt="Висотні роботи">
                 <h3>Висотні роботи</h3>
-                <p>Безпечне та професійне виконання робіт на висоті для будь-яких об'єктів.</p>
+                <p>Безпечне та profesійне виконання робіт на висоті для будь-яких об'єктів.</p>
             </div>
         </div>
     </section>
