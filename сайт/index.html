@@ -21,7 +21,24 @@
         .hidden {
             display: none;
         }
+        
+        .brick-button {
+            background-color: #b7410e; /* цегляний колір */
+            color: white;
+            border: 2px solid #8b2e0e;
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 0; /* без округлення */
+            box-shadow: 3px 3px 0 #8b2e0e;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
 
+        .brick-button:hover {
+            box-shadow: 1px 1px 0 #8b2e0e;
+            transform: translate(2px, 2px);
+        }
         /* Header */
         header {
             background: rgba(255, 255, 255, 0.95);
@@ -994,7 +1011,7 @@
         </div style="text-align: center; margin-top: 20px;">
         <!-- Кнопка -->
         <div style="text-align: center; margin-top: 20px;">
-            <button onclick="showMoreImages()">Показати ще</button>
+            <button class="brick-button" onclick="showMoreImages()">Показати ще</button>
         </div>
 
         <script>
