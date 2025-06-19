@@ -49,18 +49,23 @@
         align-items: center;
         }
 
-        .contact-btn,
-        .phone-btn {
-        background-color: #b7410e;
-        color: white;
-        border: 2px solid #8b2e0e;
-        padding: 10px 18px;
-        font-size: 16px;
-        font-weight: bold;
-        text-decoration: none;
-        box-shadow: 2px 2px 0 #8b2e0e;
-        transition: background-color 0.2s ease;
+        .contact-btn, .phone-btn {
+            background-color: #f4a261; /* теплий м'який оранжевий */
+            color: #fff;
+            border: 1px solid #e07b39; /* м’який контур */
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: 500;
+            text-decoration: none;
+            box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.15); /* м’яка тінь */
+            transition: all 0.25s ease-in-out;
+            border-radius: 6px; /* трохи скруглені кути */
         }
+
+        .contact-btn:hover, .phone-btn:hover {
+            background-color: #e07b39;
+        }
+
 
         .contact-btn:hover,
         .phone-btn:hover {
@@ -68,7 +73,7 @@
         }
 
         .telegram-btn {
-        background-color: #f4a261;
+        background-color: linear-gradient(45deg, #a9370e, #e0741b);
         width: 44px;
         height: 44px;
         border-radius: 50%;
