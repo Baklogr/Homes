@@ -14,7 +14,8 @@
 
         body {
             line-height: 1.6;
-            color: #333;
+            color: #2b1e0f;
+            background-color: #fdf7f0; /* Creamy background */
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             min-height: 100vh;
         }
@@ -86,7 +87,7 @@
         }
 
         header {
-            background: rgba(255, 255, 255, 0.95);
+            background: linear-gradient(rgba(166, 61, 0, 0.8), rgba(122, 41, 0, 0.8)), url('https://www.transparenttextures.com/patterns/brick-wall.png');
             backdrop-filter: blur(20px);
             box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
             position: fixed;
@@ -117,6 +118,8 @@
         nav ul {
             list-style: none;
             display: flex;
+            justify-content: center;
+            margin-top: 10px;
             gap: 30px;
         }
 
@@ -216,15 +219,10 @@
         }
 
         .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 80px;
-            position: relative;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            overflow: hidden;
-            padding: 0 100px 0 150px;
+            background: url('https://www.transparenttextures.com/patterns/cubes.png'); /* Insulation-like texture */
+            padding: 60px 20px;
+            text-align: center;
+            color: #2b1e0f;
         }
 
         .hero::before {
