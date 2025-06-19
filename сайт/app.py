@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, flash, send_from_directory
+from flask import Flask, render_template, request, redirect, flash, send_from_directory, session, url_for
 import json
 import os
 from werkzeug.utils import secure_filename
@@ -7,8 +7,9 @@ app = Flask(__name__, template_folder='.')
 app.secret_key = 'секрет'
 
 DATA_FILE = 'price.json'
+CRED_FILE = 'cred.json'  # файл з обліковими даними
 IMAGES_FOLDER = 'images'  # папка для збереження фото
-ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'svg', 'gif'}
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
@@ -26,6 +27,15 @@ def save_data(data):
     with open(DATA_FILE, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=4)
 
+def load_credentials():
+    if os.path.exists(CRED_FILE):
+        with open(CRED_FILE, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    return {
+        "username": "admin",
+        "password": "admin123"
+    }
+
 @app.route('/images/<path:filename>')
 def custom_static_images(filename):
     return send_from_directory(IMAGES_FOLDER, filename)
@@ -35,8 +45,31 @@ def index():
     data = load_data()
     return render_template('index.html', services=data['services'], gallery=data.get('gallery', []))
 
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        credentials = load_credentials()
+        username = request.form.get('username')
+        password = request.form.get('password')
+
+        if username == credentials.get('username') and password == credentials.get('password'):
+            session['logged_in'] = True
+            return redirect(url_for('admin'))
+        else:
+            flash('Невірний логін або пароль', 'error')
+    
+    return render_template('login.html')
+
+@app.route('/logout')
+def logout():
+    session.pop('logged_in', None)
+    return redirect(url_for('login'))
+
 @app.route('/admin', methods=['GET', 'POST'])
 def admin():
+    if not session.get('logged_in'):
+        return redirect(url_for('login'))
+
     data = load_data()
 
     if request.method == 'POST':
@@ -107,7 +140,6 @@ def admin():
             return redirect('/admin')
 
     return render_template('admin.html', services=data['services'], gallery=data.get('gallery', []))
-
 
 if __name__ == '__main__':
     app.run(debug=True, port=9123)
