@@ -42,7 +42,31 @@
             box-shadow: 3px 3px 6px rgba(0,0,0,0.25);
         }
 
+        /*кнопка телеграма*/
+        .telegram-float {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #f4a261; /* теплий оранжевий */
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 999;
+        transition: transform 0.2s ease;
+        }
 
+        .telegram-float:hover {
+        transform: scale(1.1);
+        }
+
+        .telegram-float img {
+        width: 26px;
+        height: 26px;
+        }
         .arrow-right {
             width: 20px;
             height: 20px;
