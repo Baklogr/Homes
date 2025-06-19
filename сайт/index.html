@@ -542,6 +542,48 @@
             margin: 0;
         }
 
+        /* Додати стрілки між картками */
+        .process-card::after {
+            content: '→';
+            position: absolute;
+            right: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: #ff6b35;
+            font-weight: bold;
+        }
+
+        /* Прибрати стрілку з останньої картки в ряду */
+        .process-card:nth-child(3n)::after,
+        .process-card:nth-child(6)::after {
+            display: none;
+        }
+
+        /* Оновити іконки */
+        .process-icon {
+            width: 60px;
+            height: 60px;
+            font-size: 28px;
+        }
+
+        /* Адаптивність для стрілок */
+        @media (max-width: 900px) {
+            .process-card:nth-child(3n)::after {
+                display: block;
+            }
+            .process-card:nth-child(2n)::after,
+            .process-card:nth-child(6)::after {
+                display: none;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .process-card::after {
+                display: none;
+            }
+        }
+
         /* Адаптивність */
         @media (max-width: 900px) {
             .process-grid {
@@ -1189,47 +1231,52 @@
         <h2>Як ми працюємо</h2>
         <div class="process-grid">
             <div class="process-card">
-                <div class="process-number">1</div>
-                <div class="process-icon">📞</div>
-                <h3>Залишаєте заявку</h3>
-                <p>Зв'яжіться з нами будь-яким зручним способом або залиште заявку на сайті</p>
-            </div>
-            
-            <div class="process-card">
-                <div class="process-number">2</div>
-                <div class="process-icon">❓</div>
-                <h3>Відповідаємо на питання та знаходимо рішення</h3>
-                <p>Наш фахівець проконсультує вас та підбере оптимальне рішення</p>
-            </div>
-            
-            <div class="process-card">
-                <div class="process-number">3</div>
-                <div class="process-icon">🏠</div>
-                <h3>Обговорюємо та узгоджуємо метраж і бюджет</h3>
-                <p>Виїжджаємо на об'єкт, проводимо заміри та складаємо кошторис</p>
-            </div>
-            
-            <div class="process-card">
-                <div class="process-number">4</div>
-                <div class="process-icon">📅</div>
-                <h3>Визначаємо дату робіт</h3>
-                <p>Узгоджуємо зручний для вас час початку робіт</p>
-            </div>
-            
-            <div class="process-card">
-                <div class="process-number">5</div>
-                <div class="process-icon">🏗️</div>
-                <h3>Утеплюємо ваш дім</h3>
-                <p>Виконуємо всі роботи якісно та в узгоджені терміни</p>
-            </div>
-            
-            <div class="process-card">
-                <div class="process-number">6</div>
-                <div class="process-icon">💰</div>
-                <h3>Ви починаєте економити на опаленні</h3>
-                <p>Насолоджуєтесь теплом та зниженими витратами на опалення</p>
-            </div>
+            <div class="process-number">1</div>
+            <div class="process-icon">📏</div>
+            <h3>Замір об'єкта</h3>
+            <p>Виїжджаємо та проводимо заміри</p>
         </div>
+
+        <div class="process-card">
+            <div class="process-number">2</div>
+            <div class="process-icon">📋</div>
+            <h3>Складання кошторису</h3>
+            <p>Розраховуємо вартість робіт</p>
+        </div>
+
+        <div class="process-card">
+            <div class="process-number">3</div>
+            <div class="process-icon">✍️</div>
+            <h3>Укладання договору</h3>
+            <p>Підписуємо договір на роботи</p>
+        </div>
+
+        <div class="process-card">
+            <div class="process-number">4</div>
+            <div class="process-icon">💳</div>
+            <h3>Передоплата на матеріал</h3>
+            <p>Вносите передоплату за матеріали</p>
+        </div>
+
+        <div class="process-card">
+            <div class="process-number">5</div>
+            <div class="process-icon">🛒</div>
+            <h3>Закупка матеріалів</h3>
+            <p>Купуємо необхідні матеріали</p>
+        </div>
+
+        <div class="process-card">
+            <div class="process-number">6</div>
+            <div class="process-icon">🔨</div>
+            <h3>Виконання робіт</h3>
+            <p>Якісно виконуємо утеплення</p>
+        </div>
+        <div class="process-card">
+        <div class="process-number">7</div>
+        <div class="process-icon">💰</div>
+        <h3>Оплата по факту</h3>
+        <p>Доплачуєте після завершення</p>
+    </div>
     </section>
     <section>
         <h2 class="section-title smaller">ЧОМУ ВИ ПОВИННІ ОБРАТИ САМЕ НАС</h2>
