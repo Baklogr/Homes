@@ -5,260 +5,345 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WarmFortis</title>
     <style> 
-                /* General Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f9f1e9; /* Warm beige background */
-            color: #3e2f1c; /* Dark brown text */
-        }
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f9f1e9; /* Warm beige background */
+    color: #3e2f1c; /* Dark brown text */
+}
 
-        /* Header */
-        header {
-            background: linear-gradient(rgba(204, 85, 0, 0.8), rgba(153, 51, 0, 0.8)), url('https://www.transparenttextures.com/patterns/brick-wall.png'); /* Brick texture with gradient */
-            background-size: cover;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+/* Header */
+header {
+    background: linear-gradient(rgba(204, 85, 0, 0.8), rgba(153, 51, 0, 0.8)), url('https://www.transparenttextures.com/patterns/brick-wall.png'); /* Brick texture */
+    background-size: cover;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
-        header img {
-            max-width: 150px;
-        }
+header img {
+    max-width: 150px;
+}
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 10px;
-        }
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+}
 
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
 
-        nav a:hover {
-            color: #ffcc80;
-        }
+nav a:hover {
+    color: #ffcc80;
+}
 
-        /* Hero Section */
-        .hero {
-            background: url('https://www.transparenttextures.com/patterns/cubes.png'); /* Subtle insulation-like texture */
-            padding: 60px 20px;
-            text-align: center;
-            color: #3e2f1c;
-        }
+/* Hero Section */
+.hero {
+    background: url('https://www.transparenttextures.com/patterns/cubes.png'); /* Insulation-like texture */
+    padding: 60px 20px;
+    text-align: center;
+    color: #3e2f1c;
+}
 
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
 
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-        }
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
 
-        .cta {
-            display: inline-block;
-            padding: 15px 30px;
-            background-color: #cc5500; /* Warm orange */
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
+.cta {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #cc5500; /* Warm orange */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
 
-        .cta:hover {
-            background-color: #993300;
-        }
+.cta:hover {
+    background-color: #993300;
+}
 
-        /* About Section */
-        .about, .process, .why-us, .services, .benefits, .pricing, .gallery, .contact, footer {
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+/* About, Process, Why Us, Services, Benefits, Pricing, Gallery, Contact */
+.about, .process, .why-us, .services, .benefits, .pricing, .gallery, .contact, footer {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-        .about h2, .process h2, .why-us h2, .services h2, .benefits h2, .pricing h2, .gallery h2, .contact h2 {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: #cc5500;
-        }
+.about h2, .process h2, .why-us h2, .services h2, .benefits h2, .pricing h2, .gallery h2, .contact h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #cc5500;
+}
 
-        /* Process Steps */
-        .process .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            text-align: center;
-        }
+/* Process Steps */
+.process .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    text-align: center;
+}
 
-        .process .step {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
+.process .step {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
 
-        .process .step:hover {
-            transform: translateY(-5px);
-        }
+.process .step:hover {
+    transform: translateY(-5px);
+}
 
-        .process .step span {
-            font-size: 2rem;
-            color: #cc5500;
-        }
+.process .step span {
+    font-size: 2rem;
+    color: #cc5500;
+}
 
-        /* Why Us and Benefits */
-        .why-us .features, .benefits .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
+/* Why Us and Benefits */
+.why-us .features, .benefits .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
 
-        .why-us .feature, .benefits .feature {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+.why-us .feature, .benefits .feature {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
-        .why-us .feature img, .benefits .feature img {
-            max-width: 50px;
-            margin-bottom: 10px;
-        }
+.why-us .feature span, .benefits .feature span {
+    font-size: 2rem;
+    color: #cc5500;
+    display: block;
+    margin-bottom: 10px;
+}
 
-        /* Services */
-        .services .service-items {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
+/* Services */
+.services .service-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
 
-        .services .service {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+.services .service {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
-        /* Pricing */
-        .pricing .price-items {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
+/* Pricing */
+.pricing .price-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
 
-        .pricing .price {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+.pricing .price {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
-        .pricing .price a {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px 20px;
-            background-color: #cc5500;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-        }
+.pricing .price h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #3e2f1c;
+}
 
-        /* Gallery */
-        .gallery .gallery-items {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 10px;
-        }
+.pricing .price h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #cc5500;
+}
 
-        .gallery img {
-            width: 100%;
-            border-radius: 10px;
-            transition: transform 0.3s;
-        }
+.pricing .price ul {
+    list-style: none;
+    margin-bottom: 15px;
+}
 
-        .gallery img:hover {
-            transform: scale(1.05);
-        }
+.pricing .price ul li {
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
 
-        .gallery .show-more {
-            display: block;
-            margin: 20px auto;
-            padding: 10px 20px;
-            background-color: #cc5500;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            text-align: center;
-            width: fit-content;
-        }
+.pricing .price a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #cc5500;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
 
-        /* Contact Form */
-        .contact form {
-            max-width: 600px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
+/* Gallery */
+.gallery .gallery-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
 
-        .contact input, .contact textarea {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
+.gallery figure {
+    margin: 0;
+}
 
-        .contact button {
-            padding: 15px;
-            background-color: #cc5500;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-        }
+.gallery img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
 
-        .contact button:hover {
-            background-color: #993300;
-        }
+.gallery img:hover {
+    transform: scale(1.05);
+}
 
-        /* Footer */
-        footer {
-            background-color: #3e2f1c;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-        }
+.gallery .show-more {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #cc5500;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    width: fit-content;
+}
 
-        footer a {
-            color: #ffcc80;
-            text-decoration: none;
-            margin: 0 10px;
-        }
+/* Modal */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
 
-        footer a:hover {
-            text-decoration: underline;
-        }
+.modal.show {
+    display: flex; /* Show when active */
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close:hover {
+    color: #ffcc80;
+}
+
+/* Contact Form */
+.contact form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact input, .contact textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.contact button {
+    padding: 15px;
+    background-color: #cc5500;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.contact button:hover {
+    background-color: #993300;
+}
+
+/* Footer */
+footer {
+    background-color: #3e2f1c;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+footer a {
+    color: #ffcc80;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .cta, .pricing .price a, .gallery .show-more, .contact button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .process .steps, .why-us .features, .benefits .features, .services .service-items, .pricing .price-items, .gallery .gallery-items {
+        grid-template-columns: 1fr;
+    }
+}
     </style>
 </head>
 <body>
