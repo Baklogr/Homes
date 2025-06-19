@@ -1091,6 +1091,29 @@
             color: #3a1f0f;
             box-shadow: 3px 3px 0 #c78f63;
             text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.4);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 280px; /* або підбери вручну під свої тексти */
+            position: relative;
+        }
+
+        .review-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 25px;
+        }
+
+        .review-name {
+            font-weight: bold;
+            color: #8b4513;
+        }
+
+        .review-date {
+            font-size: 14px;
+            color: #7a4b2d;
+            opacity: 0.8;
         }
         .review-box span {
             display: block;
@@ -1618,15 +1641,24 @@
     <div class="reviews-container">
         <div class="review-box">
         <p>"Живу на останньому поверсі, і взимку було дуже холодно через дах і торцеву стіну. Замовила утеплення мінеральною ватою. Працювали акуратно, сміття після себе не залишили. Цього сезону в квартирі стало набагато тепліше."</p>
-        <span>— Олена</span>
+        <div class="review-footer">
+            <span class="review-name">— Олена</span>
+            <span class="review-date">12.04.24</span>
+        </div>
         </div>
         <div class="review-box">
         <p>"Після народження дитини вирішили утеплити дитячу кімнату. Хлопці порадили графітовий пінопласт — ефект вразив. Тепер постійна температура, без перепадів. Дитина спить комфортно, а ми спокійні."</p>
-        <span>— Андрій</span>
+        <div class="review-footer">
+            <span class="review-name">— Андрій</span>
+            <span class="review-date">28.03.24</span>
+        </div>
         </div>
         <div class="review-box">
         <p>"Раніше щозими промерзала стіна біля кухні. Після утеплення екструдованим пінополістиролом проблема зникла. Роботи виконали швидко, все чітко по договору. Порадувало, що надали гарантію і сертифіковані матеріали."</p>
-        <span>— Марія</span>
+        <div class="review-footer">
+            <span class="review-name">— Марія</span>
+            <span class="review-date">17.05.23</span>
+        </div>
         </div>
     </div>
     </section>
