@@ -165,6 +165,56 @@
             box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
         }
 
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: #333;
+            margin: 5px 0;
+            transition: all 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.95);
+                padding: 20px;
+                box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+            }
+            nav ul.active {
+                display: flex;
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+            nav ul li a {
+                font-size: 18px;
+                padding: 10px;
+            }
+            .header-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .contact-btn {
+                width: 100%;
+                text-align: center;
+                margin-top: 10px;
+            }
+        }
+
         .hero {
             height: 100vh;
             display: flex;
@@ -303,9 +353,7 @@
         }
 
         .about-us {
-            background: 
-                linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
-                url('images/Gal1.jpg') center/cover no-repeat;
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('images/Gal1.jpg') center/cover no-repeat;
             color: #fff;
             padding: 100px 20px;
         }
@@ -344,15 +392,6 @@
             align-items: center;
         }
 
-        /*Стилі для секції з цінами*/
-
-
-        body {
-            background-color: #f3fafa;
-            padding: 40px;
-            font-family: sans-serif;
-            }
-
         .prices h2 {
             font-size: 42px;
             color: #333;
@@ -378,7 +417,7 @@
             gap: 30px;
             max-width: 1000px;
             margin: 0 auto;
-            }
+        }
 
         .card {
             background-color: white;
@@ -388,35 +427,35 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            }
+        }
 
         .card-title {
             color: orange;
             font-weight: bold;
             margin-bottom: 5px;
-            }
+        }
 
         .card-heading {
             font-size: 22px;
             color: #031b39;
             margin: 0 0 15px;
-            }
+        }
 
         .features {
             list-style: none;
             padding: 0;
             margin: 0 0 20px;
-            }
+        }
 
         .features li {
             margin-bottom: 6px;
-            }
+        }
 
         .bottom {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            }
+        }
 
         .order-btn {
             background-color: #f90;
@@ -427,26 +466,23 @@
             cursor: pointer;
             border-radius: 4px;
             box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-            }
+        }
 
         .price {
             text-align: right;
-            }
+        }
 
         .price span {
             font-size: 14px;
             color: orange;
-            }
+        }
 
         .price strong {
             font-size: 32px;
             color: orange;
             line-height: 1;
-            }
-            
-        /*Кінець стилів з цінами*/
-        
-        /*Стиль для що дає утеплення*/
+        }
+
         .benefits {
             padding: 80px 0;
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
@@ -532,49 +568,6 @@
             font-size: 1rem;
             font-weight: 500;
         }
-
-        @media (max-width: 768px) {
-            .benefits-container {
-                flex-direction: column;
-                gap: 40px;
-                align-items: center;
-            }
-
-            .benefits-left,
-            .benefits-right {
-                margin-top: 0;
-            }
-            
-            .benefits-center h2 {
-                font-size: 2rem;
-            }
-            
-            .benefits-center img {
-                max-width: 250px !important;
-            }
-            
-            .benefit-item {
-                padding: 16px 18px;
-                min-height: 70px;
-            }
-            
-            .benefit-icon {
-                font-size: 2rem;
-                width: 50px;
-                height: 50px;
-            }
-            
-            .benefit-text h3 {
-                font-size: 1.2rem;
-            }
-
-            .benefit-text p {
-                font-size: 0.95rem;
-            }
-        }
-        /*Кінець стиль для що дає утеплення*/
-
-       /*Стиль для схеми*/
 
         .work-process-new {
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
@@ -671,7 +664,6 @@
             margin: 0;
         }
 
-        /* Додати стрілки між картками */
         .process-card::after {
             content: '→';
             position: absolute;
@@ -683,21 +675,15 @@
             font-weight: bold;
         }
 
-        /* Прибрати стрілку з останньої картки в ряду */
         .process-card:nth-child(3n)::after,
         .process-card:nth-child(6)::after {
             display: none;
         }
 
-        /* Оновити іконки */
-        .process-icon {
-            width: 60px;
-            height: 60px;
-            font-size: 28px;
-        }
-
-        /* Адаптивність для стрілок */
         @media (max-width: 900px) {
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
             .process-card:nth-child(3n)::after {
                 display: block;
             }
@@ -708,36 +694,20 @@
         }
 
         @media (max-width: 600px) {
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
             .process-card::after {
                 display: none;
             }
-        }
-
-        /* Адаптивність */
-        @media (max-width: 900px) {
-            .process-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 30px;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .process-grid {
-                grid-template-columns: 1fr;
-                gap: 25px;
-            }
-            
             .work-process-new {
                 padding: 60px 20px;
             }
-            
             .work-process-new h2 {
                 font-size: 32px;
                 margin-bottom: 40px;
             }
         }
-
-        /*кінець стиля схеми*/
 
         .process-row {
             display: flex;
@@ -1237,12 +1207,9 @@
             .advantages-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
             .advantages-grid.last-row {
-                display: grid;
                 grid-template-columns: repeat(2, 1fr);
             }
-            
             .advantages-grid.last-row .advantage-item {
                 width: 100%;
                 max-width: none;
@@ -1255,13 +1222,11 @@
                 gap: 20px;
                 padding: 15px;
             }
-
             nav ul {
                 flex-wrap: wrap;
                 justify-content: center;
                 gap: 20px;
             }
-
             .hero {
                 flex-direction: column;
                 text-align: center;
@@ -1269,121 +1234,115 @@
                 height: auto;
                 min-height: 100vh;
             }
-
             .hero-content {
                 padding: 0;
                 margin-bottom: 40px;
             }
-
             .hero-content h1 {
                 font-size: 36px;
             }
-
             .hero-image {
                 padding: 20px;
                 height: auto;
             }
-
             .section-title {
                 font-size: 32px;
             }
-
             .advantages-grid {
                 grid-template-columns: 1fr;
             }
-            
             .advantages-grid.last-row {
                 grid-template-columns: 1fr;
             }
-
             .services-grid {
                 grid-template-columns: 1fr;
             }
-
             .services-extra {
                 grid-template-columns: 1fr;
             }
-            
             .gallery-grid {
                 grid-template-columns: 1fr;
             }
-
             .gallery-item img {
                 height: 250px;
             }
-            
             .about-us p {
                 padding: 20px;
                 font-size: 18px;
             }
-            
             .contact-form {
                 padding: 30px 20px;
             }
         }
 
-        /* Адаптивність */
-@media (max-width: 768px) {
-    .services-extra {
-        grid-template-columns: 1fr;
-    }
-    .card-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 480px) {
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-    nav ul li {
-        margin-bottom: 10px;
-    }
-    nav ul li a {
-        padding: 10px;
-    }
-    .hero-content h1 {
-        font-size: 28px;
-    }
-    .hero-content .company-name {
-        font-size: 24px;
-    }
-    .hero-content .location {
-        font-size: 16px;
-    }
-    .hero {
-        padding: 20px;
-    }
-    .section {
-        padding: 40px 10px;
-    }
-    .section-title {
-        font-size: 28px;
-    }
-    .gallery-item img {
-        height: 200px;
-    }
-    .contact-form {
-        padding: 20px;
-    }
-    .close {
-        font-size: 50px;
-        right: 20px;
-    }
-    .order-btn {
-        padding: 12px 24px;
-        font-size: 16px;
-    }
-}
-        /* кінець адаптивності */
-
+        @media (max-width: 480px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav ul li {
+                margin-bottom: 10px;
+            }
+            nav ul li a {
+                padding: 10px;
+            }
+            .hero-content h1 {
+                font-size: 28px;
+            }
+            .hero-content .company-name {
+                font-size: 24px;
+            }
+            .hero-content .location {
+                font-size: 16px;
+            }
+            .hero {
+                padding: 20px;
+            }
+            .section {
+                padding: 40px 10px;
+            }
+            .section-title {
+                font-size: 28px;
+            }
+            .gallery-item img {
+                height: 200px;
+            }
+            .contact-form {
+                padding: 20px;
+            }
+            .close {
+                font-size: 50px;
+                right: 20px;
+            }
+            .order-btn {
+                padding: 12px 24px;
+                font-size: 16px;
+            }
+            .process-card {
+                padding: 20px;
+            }
+            .process-number {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+            .process-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="header-container">
             <div class="logo">WarmFortis</div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <nav>
                 <ul>
                     <li><a href="#home">Головна</a></li>
@@ -1416,44 +1375,42 @@
         <h2>Як ми працюємо</h2>
         <div class="process-grid">
             <div class="process-card">
-            <div class="process-number">1</div>
-            <div class="process-icon">📏</div>
-            <h3>Замір об'єкта</h3>
-            <p>Виїжджаємо та проводимо заміри.</p>
+                <div class="process-number">1</div>
+                <div class="process-icon">📏</div>
+                <h3>Замір об'єкта</h3>
+                <p>Виїжджаємо та проводимо заміри.</p>
+            </div>
+            <div class="process-card">
+                <div class="process-number">2</div>
+                <div class="process-icon">📋</div>
+                <h3>Складання кошторису</h3>
+                <p>Розраховуємо вартість робіт.</p>
+            </div>
+            <div class="process-card">
+                <div class="process-number">3</div>
+                <div class="process-icon">✍️</div>
+                <h3>Укладання договору</h3>
+                <p>Підписуємо договір на роботи.</p>
+            </div>
+            <div class="process-card">
+                <div class="process-number">4</div>
+                <div class="process-icon">💳</div>
+                <h3>Передоплата на матеріал</h3>
+                <p>Вносите передоплату за матеріали.</p>
+            </div>
+            <div class="process-card">
+                <div class="process-number">5</div>
+                <div class="process-icon">🔨</div>
+                <h3>Виконання робіт</h3>
+                <p>Якісно виконуємо утеплення.</p>
+            </div>
+            <div class="process-card">
+                <div class="process-number">6</div>
+                <div class="process-icon">💰</div>
+                <h3>Оплата по факту</h3>
+                <p>Доплачуєте після завершення.</p>
+            </div>
         </div>
-
-        <div class="process-card">
-            <div class="process-number">2</div>
-            <div class="process-icon">📋</div>
-            <h3>Складання кошторису</h3>
-            <p>Розраховуємо вартість робіт.</p>
-        </div>
-
-        <div class="process-card">
-            <div class="process-number">3</div>
-            <div class="process-icon">✍️</div>
-            <h3>Укладання договору</h3>
-            <p>Підписуємо договір на роботи.</p>
-        </div>
-
-        <div class="process-card">
-            <div class="process-number">4</div>
-            <div class="process-icon">💳</div>
-            <h3>Передоплата на матеріал</h3>
-            <p>Вносите передоплату за матеріали.</p>
-        </div>
-        <div class="process-card">
-            <div class="process-number">5</div>
-            <div class="process-icon">🔨</div>
-            <h3>Виконання робіт</h3>
-            <p>Якісно виконуємо утеплення.</p>
-        </div>
-        <div class="process-card">
-        <div class="process-number">6</div>
-        <div class="process-icon">💰</div>
-        <h3>Оплата по факту</h3>
-        <p>Доплачуєте після завершення.</p>
-    </div>
     </section>
     <section>
         <h2 class="section-title smaller">ЧОМУ ВИ ПОВИННІ ОБРАТИ САМЕ НАС</h2>
@@ -1513,154 +1470,142 @@
         </div>
     </section>
 
-<!--Секція з перевагами утеплення-->
-<section class="benefits section" id="benefits">
-    <div class="benefits-container">
-        <div class="benefits-left">
-            <div class="benefit-item">
-                <div class="benefit-icon">💰</div>
-                <div class="benefit-text">
-                    <h3>Економія на опаленні</h3>
-                    <p>До 40% зниження витрат на комунальні послуги</p>
+    <section class="benefits section" id="benefits">
+        <div class="benefits-container">
+            <div class="benefits-left">
+                <div class="benefit-item">
+                    <div class="benefit-icon">💰</div>
+                    <div class="benefit-text">
+                        <h3>Економія на опаленні</h3>
+                        <p>До 40% зниження витрат на комунальні послуги</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🏠</div>
+                    <div class="benefit-text">
+                        <h3>Комфорт у домі</h3>
+                        <p>Стабільна температура та відсутність протягів</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🌡️</div>
+                    <div class="benefit-text">
+                        <h3>Відсутність конденсату</h3>
+                        <p>Позбудьтеся від цвілі та підвищеної вологості</p>
+                    </div>
                 </div>
             </div>
-            <div class="benefit-item">
-                <div class="benefit-icon">🏠</div>
-                <div class="benefit-text">
-                    <h3>Комфорт у домі</h3>
-                    <p>Стабільна температура та відсутність протягів</p>
-                </div>
+            <div class="benefits-center">
+                <h2>Що дає утеплення</h2>
+                <img src="images/chema.jpg" alt="Переваги утеплення" style="max-width: 300px; width: 100%; height: auto;">
             </div>
-            <div class="benefit-item">
-                <div class="benefit-icon">🌡️</div>
-                <div class="benefit-text">
-                    <h3>Відсутність конденсату</h3>
-                    <p>Позбудьтеся від цвілі та підвищеної вологості</p>
+            <div class="benefits-right">
+                <div class="benefit-item">
+                    <div class="benefit-icon">🛡️</div>
+                    <div class="benefit-text">
+                        <h3>Захист фасаду</h3>
+                        <p>Збільшення терміну служби стін будівлі</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🌿</div>
+                    <div class="benefit-text">
+                        <h3>Екологічність</h3>
+                        <p>Зменшення викидів CO₂ та турбота про довкілля</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">📈</div>
+                    <div class="benefit-text">
+                        <h3>Підвищення вартості</h3>
+                        <p>Зростання ринкової вартості нерухомості</p>
+                    </div>
                 </div>
             </div>
         </div>
-        
-        <div class="benefits-center">
-            <h2>Що дає утеплення</h2>
-            <img src="images/chema.jpg" alt="Переваги утеплення" style="max-width: 300px; width: 100%; height: auto;">
-        </div>
-        
-        <div class="benefits-right">
-            <div class="benefit-item">
-                <div class="benefit-icon">🛡️</div>
-                <div class="benefit-text">
-                    <h3>Захист фасаду</h3>
-                    <p>Збільшення терміну служби стін будівлі</p>
-                </div>
-            </div>
-            <div class="benefit-item">
-                <div class="benefit-icon">🌿</div>
-                <div class="benefit-text">
-                    <h3>Екологічність</h3>
-                    <p>Зменшення викидів CO₂ та турбота про довкілля</p>
-                </div>
-            </div>
-            <div class="benefit-item">
-                <div class="benefit-icon">📈</div>
-                <div class="benefit-text">
-                    <h3>Підвищення вартості</h3>
-                    <p>Зростання ринкової вартості нерухомості</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 
-<!--Кінець секції з перевагами утеплення-->
-
-<!--Секція з цінами-->
-
-    <section Class="prices section" id="prices">
+    <section class="prices section" id="prices">
         <h2>Ціни на послуги</h2>
         <div class="card-grid">
             <div class="card">
                 <div class="card-title">Утеплення</div>
                 <h2 class="card-heading">Пінопласт 50</h2>
                 <ul class="features">
-                <li>Утеплювач: Пінопласт 50мм</li>
-                <li>Кріплення дюбелем</li>
-                <li>Армування склосіткою</li>
-                <li>Шпаклювання</li>
-                <li>Фарбування в колір будинку</li>
+                    <li>Утеплювач: Пінопласт 50мм</li>
+                    <li>Кріплення дюбелем</li>
+                    <li>Армування склосіткою</li>
+                    <li>Шпаклювання</li>
+                    <li>Фарбування в колір будинку</li>
                 </ul>
                 <div class="bottom">
-                <a href="#contact" class="order-btn">Замовити</a>
-                <div class="price">
-                    <span>Від</span><br>
-                    <strong>1200</strong><br>
-                    <span>грн/кв.м</span>
-                </div>
+                    <a href="#contact" class="order-btn">Замовити</a>
+                    <div class="price">
+                        <span>Від</span><br>
+                        <strong>1200</strong><br>
+                        <span>грн/кв.м</span>
+                    </div>
                 </div>
             </div>
-
             <div class="card">
                 <div class="card-title">Утеплення</div>
                 <h2 class="card-heading">Пінопласт 100</h2>
                 <ul class="features">
-                <li>Утеплювач: Пінопласт 100мм</li>
-                <li>Кріплення дюбелем</li>
-                <li>Армування склосіткою</li>
-                <li>Шпаклювання</li>
-                <li>Фарбування в колір будинку</li>
+                    <li>Утеплювач: Пінопласт 100мм</li>
+                    <li>Кріплення дюбелем</li>
+                    <li>Армування склосіткою</li>
+                    <li>Шпаклювання</li>
+                    <li>Фарбування в колір будинку</li>
                 </ul>
                 <div class="bottom">
-                <a href="#contact" class="order-btn">Замовити</a>
-                <div class="price">
-                    <span>Від</span><br>
-                    <strong>1350</strong><br>
-                    <span>грн/кв.м</span>
-                </div>
+                    <a href="#contact" class="order-btn">Замовити</a>
+                    <div class="price">
+                        <span>Від</span><br>
+                        <strong>1350</strong><br>
+                        <span>грн/кв.м</span>
+                    </div>
                 </div>
             </div>
-
             <div class="card">
                 <div class="card-title">Утеплення</div>
                 <h2 class="card-heading">Графітовий пінопласт 50</h2>
                 <ul class="features">
-                <li>Утеплювач: Графітовий пінопласт 50мм</li>
-                <li>Кріплення дюбелем</li>
-                <li>Армування склосіткою</li>
-                <li>Шпаклювання</li>
-                <li>Фарбування в колір будинку</li>
+                    <li>Утеплювач: Графітовий пінопласт 50мм</li>
+                    <li>Кріплення дюбелем</li>
+                    <li>Армування склосіткою</li>
+                    <li>Шпаклювання</li>
+                    <li>Фарбування в колір будинку</li>
                 </ul>
                 <div class="bottom">
-                <a href="#contact" class="order-btn">Замовити</a>
-                <div class="price">
-                    <span>Від</span><br>
-                    <strong>1300</strong><br>
-                    <span>грн/кв.м</span>
-                </div>
+                    <a href="#contact" class="order-btn">Замовити</a>
+                    <div class="price">
+                        <span>Від</span><br>
+                        <strong>1300</strong><br>
+                        <span>грн/кв.м</span>
+                    </div>
                 </div>
             </div>
-
             <div class="card">
                 <div class="card-title">Утеплення</div>
                 <h2 class="card-heading">Графітовий пінопласт 100</h2>
                 <ul class="features">
-                <li>Утеплювач: Графітовий пінопласт 100мм</li>
-                <li>Кріплення дюбелем</li>
-                <li>Армування склосіткою</li>
-                <li>Шпаклювання</li>
-                <li>Фарбування в колір будинку</li>
+                    <li>Утеплювач: Графітовий пінопласт 100мм</li>
+                    <li>Кріплення дюбелем</li>
+                    <li>Армування склосіткою</li>
+                    <li>Шпаклювання</li>
+                    <li>Фарбування в колір будинку</li>
                 </ul>
                 <div class="bottom">
-                <a href="#contact" class="order-btn">Замовити</a>
-                <div class="price">
-                    <span>Від</span><br>
-                    <strong>1450</strong><br>
-                    <span>грн/кв.м</span>
-                </div>
+                    <a href="#contact" class="order-btn">Замовити</a>
+                    <div class="price">
+                        <span>Від</span><br>
+                        <strong>1450</strong><br>
+                        <span>грн/кв.м</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
-<!--Кінець секції з цінами-->
 
     <section class="gallery section" id="gallery">
         <h2>Галерея</h2>
@@ -1758,7 +1703,6 @@
             modal.style.display = 'flex';
             modalImg.src = imgSrc;
             document.body.style.overflow = 'hidden';
-            
             document.addEventListener('keydown', handleKeyPress);
         }
 
@@ -1766,7 +1710,6 @@
             const modal = document.getElementById('imageModal');
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
-            
             document.removeEventListener('keydown', handleKeyPress);
         }
 
@@ -1782,6 +1725,10 @@
                 closeModal();
             }
         }
+
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
     </script>
 </body>
 </html>
