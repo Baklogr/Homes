@@ -446,6 +446,119 @@
             
         /*Кінець стилів з цінами*/
         
+       /*Стиль для що дає утеплення*/
+        .benefits {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .benefits-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            gap: 40px;
+        }
+
+        .benefits-left,
+        .benefits-right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .benefits-center {
+            flex: 0 0 auto;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .benefits-center h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin: 0;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 25px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .benefit-text h3 {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin: 0 0 8px 0;
+            font-weight: 600;
+        }
+
+        .benefit-text p {
+            color: #6c757d;
+            margin: 0;
+            line-height: 1.5;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .benefits-container {
+                flex-direction: column;
+                gap: 40px;
+            }
+            
+            .benefits-center h2 {
+                font-size: 2rem;
+            }
+            
+            .benefits-center img {
+                max-width: 250px !important;
+            }
+            
+            .benefit-item {
+                padding: 20px;
+            }
+            
+            .benefit-icon {
+                font-size: 2rem;
+                width: 50px;
+                height: 50px;
+            }
+            
+            .benefit-text h3 {
+                font-size: 1.2rem;
+            }
+        }
+       /*Кінець стиль для що дає утеплення*/
+
        /*Стиль для схеми*/
 
         .work-process-new {
@@ -1328,6 +1441,66 @@
             </div>
         </div>
     </section>
+
+<!--Секція з перевагами утеплення-->
+<section class="benefits section" id="benefits">
+        <div class="benefits-container">
+            <div class="benefits-left">
+                <div class="benefit-item">
+                    <div class="benefit-icon">💰</div>
+                    <div class="benefit-text">
+                        <h3>Економія на опаленні</h3>
+                        <p>До 40% зниження витрат на комунальні послуги</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🏠</div>
+                    <div class="benefit-text">
+                        <h3>Комфорт у домі</h3>
+                        <p>Стабільна температура та відсутність протягів</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🌡️</div>
+                    <div class="benefit-text">
+                        <h3>Відсутність конденсату</h3>
+                        <p>Позбудьтеся від цвілі та підвищеної вологості</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="benefits-center">
+                <h2>Що дає утеплення</h2>
+                <img src="images/chema.jpg" alt="Переваги утеплення" style="max-width: 300px; width: 100%; height: auto;">
+            </div>
+            
+            <div class="benefits-right">
+                <div class="benefit-item">
+                    <div class="benefit-icon">🛡️</div>
+                    <div class="benefit-text">
+                        <h3>Захист фасаду</h3>
+                        <p>Збільшення терміну служби стін будівлі</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🌿</div>
+                    <div class="benefit-text">
+                        <h3>Екологічність</h3>
+                        <p>Зменшення викидів CO₂ та турбота про довкілля</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">📈</div>
+                    <div class="benefit-text">
+                        <h3>Підвищення вартості</h3>
+                        <p>Зростання ринкової вартості нерухомості</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!--Кінець секції з перевагами утеплення-->
 
 <!--Секція з цінами-->
 
