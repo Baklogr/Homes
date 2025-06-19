@@ -443,9 +443,131 @@
             color: orange;
             line-height: 1;
             }
-
+            
         <!--Кінець стилів з цінами-->
         
+        <!--Стиль для схеми-->
+        .work-process-new {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 80px 20px;
+            position: relative;
+        }
+
+        .work-process-new h2 {
+            font-size: 42px;
+            color: #333;
+            margin-bottom: 60px;
+            text-align: center;
+            font-weight: 700;
+            position: relative;
+            text-transform: uppercase;
+        }
+
+        .work-process-new h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #ff6b35, #f4a261);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .process-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            border: 2px solid transparent;
+        }
+
+        .process-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-color: #ff6b35;
+        }
+
+        .process-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b35, #f4a261);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0 auto 25px;
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        .process-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            color: white;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .process-card h3 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .process-card p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Адаптивність */
+        @media (max-width: 900px) {
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .process-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .work-process-new {
+                padding: 60px 20px;
+            }
+            
+            .work-process-new h2 {
+                font-size: 32px;
+                margin-bottom: 40px;
+            }
+        }
+
+        <!--кінець стиля схеми-->
+
         .process-row {
             display: flex;
             justify-content: center;
@@ -1062,6 +1184,52 @@
     <section class="about-us section" id="about-us">
         <h2 class="section-title">Про нас</h2>
         <p>Наша компанія понад 20 років спеціалізується на професійному утепленні квартир, будинків та будь-яких об'єктів, що потребують теплоізоляції. Виконуємо висотні роботи, герметизацію міжпанельних швів, оздоблення фасадів, фарбування, монтаж козирьків та відливів. Гарантуємо якість, довговічність і комфорт у кожному проєкті.</p>
+    </section>
+    <section class="work-process-new section" id="work-process">
+        <h2>Як ми працюємо</h2>
+        <div class="process-grid">
+            <div class="process-card">
+                <div class="process-number">1</div>
+                <div class="process-icon">📞</div>
+                <h3>Залишаєте заявку</h3>
+                <p>Зв'яжіться з нами будь-яким зручним способом або залиште заявку на сайті</p>
+            </div>
+            
+            <div class="process-card">
+                <div class="process-number">2</div>
+                <div class="process-icon">❓</div>
+                <h3>Відповідаємо на питання та знаходимо рішення</h3>
+                <p>Наш фахівець проконсультує вас та підбере оптимальне рішення</p>
+            </div>
+            
+            <div class="process-card">
+                <div class="process-number">3</div>
+                <div class="process-icon">🏠</div>
+                <h3>Обговорюємо та узгоджуємо метраж і бюджет</h3>
+                <p>Виїжджаємо на об'єкт, проводимо заміри та складаємо кошторис</p>
+            </div>
+            
+            <div class="process-card">
+                <div class="process-number">4</div>
+                <div class="process-icon">📅</div>
+                <h3>Визначаємо дату робіт</h3>
+                <p>Узгоджуємо зручний для вас час початку робіт</p>
+            </div>
+            
+            <div class="process-card">
+                <div class="process-number">5</div>
+                <div class="process-icon">🏗️</div>
+                <h3>Утеплюємо ваш дім</h3>
+                <p>Виконуємо всі роботи якісно та в узгоджені терміни</p>
+            </div>
+            
+            <div class="process-card">
+                <div class="process-number">6</div>
+                <div class="process-icon">💰</div>
+                <h3>Ви починаєте економити на опаленні</h3>
+                <p>Насолоджуєтесь теплом та зниженими витратами на опалення</p>
+            </div>
+        </div>
     </section>
     <section>
         <h2 class="section-title smaller">ЧОМУ ВИ ПОВИННІ ОБРАТИ САМЕ НАС</h2>
