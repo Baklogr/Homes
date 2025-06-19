@@ -1051,6 +1051,38 @@
             box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
             border-radius: 5px;
         }
+        
+        /*Стилі для коментів*/
+
+        .reviews-section {
+            padding: 60px 100px;
+            background-color: #fff5ec;
+            color: #4b2e20;
+        }
+
+        .reviews-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .review-box {
+            background-color: #f4e0cd;
+            border: 2px solid #d8b49c;
+            padding: 25px;
+            font-size: 17px;
+            font-weight: 400;
+            color: #3a1f0f;
+            box-shadow: 3px 3px 0 #c78f63;
+            text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.4);
+        }
+        .review-box span {
+            display: block;
+            margin-top: 20px;
+            font-weight: bold;
+            color: #8b4513;
+        }
+
 
         @keyframes zoom {
             from {transform: scale(0.5); opacity: 0;}
@@ -1566,6 +1598,24 @@
     
     <!--Кінець секції з галереєю-->
 
+    <!--Секція з відгуками-->
+    <section class="reviews-section">
+    <div class="reviews-container">
+        <div class="review-box">
+        <p>"Послуга була виконана якісно та вчасно. Рекомендую!"</p>
+        <span>— Олена</span>
+        </div>
+        <div class="review-box">
+        <p>"Чудовий сервіс! Залишився повністю задоволений."</p>
+        <span>— Андрій</span>
+        </div>
+        <div class="review-box">
+        <p>"Дякую за швидку роботу та приємне спілкування!"</p>
+        <span>— Марія</span>
+        </div>
+    </div>
+    </section>
+    <!--Кінець секції з відгуками-->
 
     <div id="imageModal" class="modal">
         <span class="close" onclick="closeModal()">×</span>
