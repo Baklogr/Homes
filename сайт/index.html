@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WarmFortis</title>
-    <style> 
+        <style> 
         * {
             margin: 0;
             padding: 0;
@@ -1051,14 +1051,31 @@
             box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
             border-radius: 5px;
         }
-        
+
         /*Стилі для коментів*/
 
         .reviews-section {
             padding: 60px 100px;
             color: #4b2e20;
         }
-
+	.reviews-title {
+    	    font-size: 42px;
+    	    font-weight: 700;
+    	    color: #8B4513;
+   	    margin-bottom: 50px;
+    	    text-align: center;
+   	    line-height: 1.3;
+   	    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+	}
+	.reviews-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #CD853F, #FF8C00);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
         .reviews-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -1081,7 +1098,6 @@
             font-weight: bold;
             color: #8b4513;
         }
-
 
         @keyframes zoom {
             from {transform: scale(0.5); opacity: 0;}
@@ -1596,9 +1612,9 @@
     </section>
     
     <!--Кінець секції з галереєю-->
-
     <!--Секція з відгуками-->
     <section class="reviews-section">
+    <h2 class="reviews-title">Відгуки від<br>наших клієнтів</h2>
     <div class="reviews-container">
         <div class="review-box">
         <p>"Послуга була виконана якісно та вчасно. Рекомендую!"</p>
@@ -1637,73 +1653,108 @@
         </div>
     </footer>
 
-    <script>
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Форма відправлена! Ми зв\'яжемося з вами незабаром.');
-            this.reset();
-        });
-
-        function toggleImages() {
-            const extraItems = document.querySelectorAll('.extra-images');
-            const button = document.getElementById('showMoreBtn');
-            let anyHidden = false;
-
-            extraItems.forEach(item => {
-                if (item.classList.contains('hidden')) {
-                    item.classList.remove('hidden');
-                    anyHidden = true;
-                } else {
-                    item.classList.add('hidden');
-                }
-            });
-
-            if (anyHidden) {
-                button.textContent = 'Приховати';
+<script>
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Отримуємо дані з форми
+        const formData = new FormData(this);
+        const name = formData.get('name');
+        const phone = formData.get('phone');
+        const message = formData.get('message');
+        
+        // Ваш токен бота та chat_id
+        const botToken = '8191763991:AAFKYIr_900lf9YDqM_b39sMnXsb-y_0xRE';
+        const chatId = '808908680'; // Переконайтеся, що це правильний chat_id
+        
+        // Формуємо текст повідомлення
+        const text = `📩 Нова заявка з сайту WarmFortis:\n\n👤 Ім'я: ${name}\n📞 Телефон: ${phone}\n✉️ Повідомлення: ${message}`;
+        
+        // Відправляємо повідомомлення в Telegram
+        fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                chat_id: chatId,
+                text: text
+            }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.ok) {
+                alert('✅ Дякуємо! Ваше повідомлення відправлено. Ми зв\'яжемося з вами найближчим часом.');
+                this.reset();
             } else {
-                button.textContent = 'Показати ще';
+                throw new Error(data.description || 'Помилка відправки');
             }
-        }
-
-        function openModal(imgSrc) {
-            const modal = document.getElementById('imageModal');
-            const modalImg = document.getElementById('modalImage');
-            modal.style.display = 'flex';
-            modalImg.src = imgSrc;
-            document.body.style.overflow = 'hidden';
-            document.addEventListener('keydown', handleKeyPress);
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('imageModal');
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-            document.removeEventListener('keydown', handleKeyPress);
-        }
-
-        function handleKeyPress(event) {
-            if (event.key === 'Escape') {
-                closeModal();
-            }
-        }
-
-        window.onclick = function(event) {
-            const modal = document.getElementById('imageModal');
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
-
-        document.querySelector('.hamburger').addEventListener('click', function() {
-            document.querySelector('nav ul').classList.toggle('active');
+        })
+        .catch(error => {
+            console.error('Помилка:', error);
+            alert('❌ Сталася помилка при відправці форми. Будь ласка, спробуйте ще раз або зв\'яжіться за телефоном: 0974535304');
         });
-        А
-        document.querySelectorAll('nav ul li a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.querySelector('nav ul').classList.remove('active');
-            });
+    });
+
+    function toggleImages() {
+        const extraItems = document.querySelectorAll('.extra-images');
+        const button = document.getElementById('showMoreBtn');
+        let anyHidden = false;
+
+        extraItems.forEach(item => {
+            if (item.classList.contains('hidden')) {
+                item.classList.remove('hidden');
+                anyHidden = true;
+            } else {
+                item.classList.add('hidden');
+            }
         });
 
-    </script>
+        if (anyHidden) {
+            button.textContent = 'Приховати';
+        } else {
+            button.textContent = 'Показати ще';
+        }
+    }
+
+    function openModal(imgSrc) {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        modal.style.display = 'flex';
+        modalImg.src = imgSrc;
+        document.body.style.overflow = 'hidden';
+        document.addEventListener('keydown', handleKeyPress);
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('imageModal');
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        document.removeEventListener('keydown', handleKeyPress);
+    }
+
+    function handleKeyPress(event) {
+        if (event.key === 'Escape') {
+            closeModal();
+        }
+    }
+
+    window.onclick = function(event) {
+        const modal = document.getElementById('imageModal');
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
+
+    document.querySelector('.hamburger').addEventListener('click', function() {
+        document.querySelector('nav ul').classList.toggle('active');
+    });
+    
+    document.querySelectorAll('nav ul li a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.querySelector('nav ul').classList.remove('active');
+        });
+    });
+</script>
 </body>
 </html>
