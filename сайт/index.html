@@ -13,7 +13,7 @@
         }
 
         body {
-            background-image: url('images/Fasad.jpg'); /*додає зображення на фон з текстурою */
+            background-image: url('images/gal3.jpg'); /*додає зображення на фон з текстурою */
             background-repeat: no-repeat;
             background-size: cover;  
             background-position: center center;
@@ -21,6 +21,15 @@
             background-color: #ffffff;
             margin: 0;
             padding: 0;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(0, 0, 0, 0.2); 
+            z-index: 0;
+            pointer-events: none; 
         }
         .hidden {
             display: none;
@@ -277,100 +286,91 @@
 
         .hero {
             height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 80px;
+            background-image: url('images/gal3.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             position: relative;
+            margin-top: 80px;
             overflow: hidden;
-            padding: 0 100px 0 150px;
         }
 
-
+        /* Застосовуємо блюр тільки тут */
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><defs><radialGradient id="a" cx="50%" cy="0%" r="100%"><stop offset="0%" stop-color="rgba(255,255,255,0.1)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/></radialGradient></defs><rect width="100" height="20" fill="url(%23a)"/></svg>');
-            opacity: 0.3;
+            top: 0; left: 0; right: 0; bottom: 0;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px); 
+            background-color: rgba(0, 0, 0, 0.3); 
+            z-index: 1;
         }
 
         .hero-content {
-            flex: 1;
-            padding: 0 40px;
             position: relative;
             z-index: 2;
-            max-width: 600px;
-        }
-
-        .hero-content .company-name {
-            font-size: 32px;
-            color: #8B4513;
-            margin-bottom: 15px;
-            font-weight: 300;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .hero-content h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            color: #8B4513;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            line-height: 1.2;
-        }
-
-        .hero-content .location {
-            font-size: 18px;
-            color: #5C4033;
+            height: 100%;
+            width: 100%;
             display: flex;
-            align-items: center;
-            margin-bottom: 30px;
+            flex-direction: column;
+            align-items: center;     
+            justify-content: center; 
+            text-align: center;
+            padding: 40px;
         }
 
-        .hero-content .location::before {
+        /* Центрований слоган */
+        .headline {
+            font-size: 48px;
+            font-weight: bold;
+            color: #cf783a; /* ось твій новий колір */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+            /* видаляємо можливий градієнт */
+            background: none;
+            -webkit-background-clip: initial;
+            -webkit-text-fill-color: initial;
+        }
+        .subheadline {
+            font-size: 20px;
+            color: #cf783a;
+            font-weight: 500;
+            margin-bottom: 100px;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        /* Локація — знизу зліва */
+        .location {
+            position: absolute;
+            bottom: 30px;
+            left: 40px;
+            color: #cf783a;
+            font-size: 18px;
+        }
+        .location::before {
             content: '📍';
             margin-right: 8px;
-            font-size: 20px;
         }
 
-        .hero-content .cta-btn {
-            background: linear-gradient(45deg, #a9370e, #e0741b);
-            color: #fff;
-            padding: 15px 30px;
+        /* Кнопка — знизу справа */
+        .cta-btn {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            padding: 12px 30px;
+            background-color: #D2691E;
+            color: white;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.1rem;
             text-decoration: none;
-            border-radius: 30px;
-            font-size: 18px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
-            display: inline-block;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
         }
-
-        .hero-content .cta-btn:hover {
+        .cta-btn:hover {
+            background-color: #a35414;
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
-        }
-
-        .hero-image {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-            padding: 40px;
-            height: 100%;
-        }
-
-        .hero-image img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
         }
         
         .section-work-process {
@@ -1403,10 +1403,6 @@
             .hero-content h1 {
                 font-size: 36px;
             }
-            .hero-image {
-                padding: 20px;
-                height: auto;
-            }
             .section-title {
                 font-size: 32px;
             }
@@ -1499,7 +1495,7 @@
 <body>
     <header>
         <div class="header-container">
-            <div class="logo">WarmFortis</div>
+            <div class="logo">TEPLOVIBE</div>
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -1510,11 +1506,11 @@
                     <li><a href="#home">Головна</a></li>
                     <li><a href="#about-us">Про нас</a></li>
                     <li><a href="#services">Послуги</a></li>
-                    <li><a href="#gallery">Наші фото</a></li>
+                    <li><a href="#gallery">Наші роботи</a></li>
                 </ul>
             </nav>
             <div class="header-buttons">
-                <a href="#contact" class="contact-btn">Зв'язатися з нами</a>
+                <a href="#contact" class="contact-btn">Замовити консультацію</a>
                 <div class="contact-info">
                     <a href="https://t.me/+380974654145" class="telegram-btn" target="_blank">
                         <img src="images/telegram-icon.png" alt="Telegram">
@@ -1526,13 +1522,11 @@
 
     <section class="hero animate-on-scroll" id="home">
         <div class="hero-content">
-            <div class="company-name">WarmFortis</div>
-            <h1>Тепло, що захищає ваш дім</h1>
+            <!--<div class="tagline">Утеплення будинків ззовні</div>-->
+            <h1 class="headline">Тепло, що захищає ваш дім</h1>
+            <p class="subheadline">Утеплення будинків, квартир, фасадів</p>
             <div class="location">м. Київ</div>
-            <a href="#contact" class="cta-btn">Замовити консультацію</a>
-        </div>
-        <div class="hero-image">
-            <img src="images/zag.png" alt="Утеплення будинку">
+            <a href="#contact" class="cta-btn">Замовити безкоштовний замір</a>
         </div>
     </section>
 
@@ -1694,7 +1688,7 @@
     <!--Секція з галереєю-->
 
     <section class="gallery section-gallery animate-on-scroll" id="gallery">
-        <h2>Наші фото</h2>
+        <h2>Наші роботи</h2>
         <div class="gallery-grid">
             {% for img in gallery %}
             <div 
@@ -1754,21 +1748,21 @@
         <p>"Живу на останньому поверсі, і взимку було дуже холодно через дах і торцеву стіну. Замовила утеплення, працювали акуратно, сміття після себе не залишили. Цього сезону в квартирі стало набагато тепліше."</p>
         <div class="review-footer">
             <span class="review-name">— Олена</span>
-            <span class="review-date">12.04.24</span>
+            <span class="review-date">12.09.24</span>
         </div>
         </div>
         <div class="review-box">
         <p>"Після народження дитини вирішили утеплити дитячу кімнату. Хлопці порадили графітовий пінопласт — ефект вразив. Тепер постійна температура, без перепадів. Дитина спить комфортно, а ми спокійні."</p>
         <div class="review-footer">
             <span class="review-name">— Андрій</span>
-            <span class="review-date">28.03.24</span>
+            <span class="review-date">28.06.24</span>
         </div>
         </div>
         <div class="review-box">
         <p>"Раніше щозими промерзала стіна біля кухні. Після утеплення пінополістиролом проблема зникла. Роботи виконали швидко, все чітко по договору. Порадувало, що надали гарантію і сертифіковані матеріали."</p>
         <div class="review-footer">
             <span class="review-name">— Дмитро</span>
-            <span class="review-date">17.05.23</span>
+            <span class="review-date">17.07.23</span>
         </div>
         </div>
     </div>
@@ -1781,7 +1775,7 @@
     </div>
 
     <section class="contact section-contact animate-on-scroll" id="contact">
-        <h2>Зв'яжіться з нами</h2>
+        <h2>Замовити консультацію</h2>
         <form class="contact-form" id="contact-form">
             <input type="text" name="name" placeholder="Ваше ім'я" required>
             <input type="tel" name="phone" placeholder="Ваш телефон" required>
@@ -1792,7 +1786,7 @@
 
     <footer>
         <div class="footer-content">
-            <p>© 2025 WarmFortis. Усі права захищено.</p>
+            <p>© 2025 TEPLOVIBE. Усі права захищено.</p>
         </div>
     </footer>
 
@@ -1811,7 +1805,7 @@
         const chatId = '808908680'; // Переконайтеся, що це правильний chat_id
         
         // Формуємо текст повідомлення
-        const text = `📩 Нова заявка з сайту WarmFortis:\n\n👤 Ім'я: ${name}\n📞 Телефон: ${phone}\n✉️ Повідомлення: ${message}`;
+        const text = `📩 Нова заявка з сайту TeploVibe:\n\n👤 Ім'я: ${name}\n📞 Телефон: ${phone}\n✉️ Повідомлення: ${message}`;
         
         // Відправляємо повідомомлення в Telegram
         fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
@@ -1923,7 +1917,7 @@
     if (heroBottom <= 0) {
         document.body.style.backgroundImage = "url('images/brick-wall53167367278413647162.png')";
     } else {
-        document.body.style.backgroundImage = "url('images/Fasad.jpg')";
+        document.body.style.backgroundImage = "url('images/gal3.jpg')";
     }
     });
 
