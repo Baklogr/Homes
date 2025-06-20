@@ -25,6 +25,12 @@
         }
 
         /*телеграм стилі*/
+        .contact-right {
+        display: flex;
+        align-items: center;
+        gap: 6px; /* 🔧 Тут регулюй відстань між іконкою і номером */
+        }
+
         .telegram-btn {
             background-color: #f4a261;
             width: 44px;
@@ -181,60 +187,7 @@
             align-items: center;
             gap: 8px;
         }
-        /*тестова ъерня */
-        .header-buttons {
-        display: flex;
-        align-items: center;
-        gap: 8px; /* 👈 Можеш ще зменшити, напр. 5px */
-        }
-
-        .contact-btn {
-        background: linear-gradient(45deg, #a9370e, #e0741b);
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        font-size: 16px;
-        font-weight: 600;
-        text-decoration: none;
-        border-radius: 20px;
-        box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.2);
-        transition: background 0.3s ease;
-        }
-
-        .contact-btn:hover {
-        background: linear-gradient(45deg, #8b2e0e, #d4620f);
-        }
-
-        .telegram-btn {
-        background-color: #f4a261;
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.15);
-        transition: transform 0.2s ease;
-        padding: 0;
-        }
-
-        .telegram-btn:hover {
-        transform: scale(1.1);
-        }
-
-        .telegram-btn img {
-        width: 22px;
-        height: 22px;
-        }
-
-        .phone-number {
-        font-size: 16px;
-        font-weight: 500;
-        color: #000;
-        margin: 0;
-        padding: 0 0 0 6px; /* трошки відступу зліва від іконки */
-        }
-        /******************************************************/
+       
         .contact-btn {
             background: linear-gradient(45deg, #a9370e, #e0741b);
             color: #fff;
@@ -1494,13 +1447,13 @@
                     <li><a href="#gallery">Галерея</a></li>
                 </ul>
             </nav>
-            <div class="header-buttons"></div>
-            <a href="#contact" class="contact-btn">Зв'язатися з нами</a>
-            <a href="https://t.me/yourusername" class="telegram-btn" target="_blank">
-                <img src="images/telegram-icon.png" alt="Telegram">
-            </a>
+            <div class="contact-right"></div>
+                <a href="#contact" class="contact-btn">Зв'язатися з нами</a>
+                <a href="https://t.me/yourusername" class="telegram-btn" target="_blank">
+                    <img src="images/telegram-icon.png" alt="Telegram">
+                </a>
             
-            <h5>+380XXXXXXXXX</h5>
+                <h5>+380XXXXXXXXX</h5>
             </div>
         </div>
     </header>
