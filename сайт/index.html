@@ -13,15 +13,29 @@
         }
 
         body {
-            background-image: url('https://www.transparenttextures.com/patterns/brick-wall.png'); /*додає зображення на фон з текстурою */
-            background-repeat: repeat;
-            background-size: auto;  
+            background-image: url('images/Fasad.jpg'); /*додає зображення на фон з текстурою */
+            background-repeat: no-repeat;
+            background-size: cover;  
+            background-position: center center;
+            background-attachment: fixed;
             background-color: #ffffff;
             margin: 0;
             padding: 0;
         }
         .hidden {
             display: none;
+        }
+
+        /*Анімації*/
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /*телеграм стилі*/
@@ -268,10 +282,10 @@
             justify-content: space-between;
             margin-top: 80px;
             position: relative;
-            background: transparent;
             overflow: hidden;
             padding: 0 100px 0 150px;
         }
+
 
         .hero::before {
             content: '';
@@ -358,12 +372,45 @@
             object-fit: contain;
             filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
         }
+        
+        .section-work-process {
+            padding: 80px 20px;
+            position: relative;
+            margin: 0 auto;
+            background-color: #f0f0f0;
+        }
+
+        .section-benefits {
+            padding: 80px 20px;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .section-gallery {
+            padding: 80px 20px;
+            position: relative;
+            margin: 0 auto;
+            background-color: #f5f5dc;
+        }
+
+        .section-price {
+            padding: 80px 20px;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .section-contact {
+            padding: 80px 20px;
+            position: relative;
+            margin: 0 auto;
+            background-color: #f5f5dc;
+        }
 
         .section {
             padding: 80px 20px;
             position: relative;
-            max-width: 1200px;
             margin: 0 auto;
+            background-color: #f0f0f0;
         }
 
         .section-title {
@@ -409,7 +456,7 @@
             line-height: 1.8;
             color: #3E2723;
             padding: 30px;
-            background-color: rgba(255, 255, 255, 0.15);
+            background-color: rgba(255, 255, 255, 0.8);
             border-radius: 15px;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.3);
@@ -709,9 +756,9 @@
         }
 
         .process-card::after {
-            content: '→';
+            content: '➔'; /* більш витончена стрілка */
             position: absolute;
-            right: -25px;
+            right: -33px;
             top: 50%;
             transform: translateY(-50%);
             font-size: 24px;
@@ -863,7 +910,7 @@
         }
 
         .advantage-item {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(15px);
             border-radius: 20px;
             padding: 30px 20px;
@@ -905,6 +952,7 @@
 
         .services {
             padding: 80px 20px;
+            background-color: #f5f5dc;
         }
 
         .services h2 {
@@ -928,6 +976,7 @@
 
         .services-grid {
             display: grid;
+            zoom: 1.5;
             grid-template-columns: repeat(2, 1fr);
             gap: 40px;
             max-width: 900px;
@@ -936,6 +985,7 @@
 
         .services-extra {
             display: grid;
+            zoom: 1.5;
             grid-template-columns: repeat(2, 1fr);
             gap: 40px;
             margin-top: 40px;
@@ -1133,8 +1183,8 @@
         }
 
         .review-box {
-            background-color: #f4e0cd;
-            border: 2px solid #d8b49c;
+            background-color: #FFFFF0;
+            border: 2px solid #fff;
             padding: 25px;
             font-size: 17px;
             font-weight: 400;
@@ -1281,6 +1331,7 @@
             color: #412c29;
             padding: 40px 20px;
             text-align: center;
+            background-color: #f5f5dc;
         }
 
         .footer-content {
@@ -1459,7 +1510,7 @@
                     <li><a href="#home">Головна</a></li>
                     <li><a href="#about-us">Про нас</a></li>
                     <li><a href="#services">Послуги</a></li>
-                    <li><a href="#gallery">Галерея</a></li>
+                    <li><a href="#gallery">Наші фото</a></li>
                 </ul>
             </nav>
             <div class="header-buttons">
@@ -1473,7 +1524,7 @@
         </div>
     </header>
 
-    <section class="hero" id="home">
+    <section class="hero animate-on-scroll" id="home">
         <div class="hero-content">
             <div class="company-name">WarmFortis</div>
             <h1>Тепло, що захищає ваш дім</h1>
@@ -1485,7 +1536,7 @@
         </div>
     </section>
 
-    <section class="services section" id="services">
+    <section class="services section animate-on-scroll" id="services">
         <h2>Наші послуги</h2>
         <div class="services-grid">
             <div class="service-card">
@@ -1513,7 +1564,7 @@
         </div>
     </section>
 
-    <section class="benefits section" id="benefits">
+    <section class="benefits section-benefits animate-on-scroll" id="benefits">
         <div class="benefits-container">
             <div class="benefits-left">
                 <div class="benefit-item">
@@ -1568,7 +1619,7 @@
         </div>
     </section>
 
-    <section class="work-process-new section" id="work-process">
+    <section class="work-process-new section-work-process animate-on-scroll" id="work-process">
         <h2>Як ми працюємо</h2>
         <div class="process-grid">
             <div class="process-card">
@@ -1610,7 +1661,7 @@
         </div>
     </section>
 
-    <section>
+    <section class = "animate-on-scroll">
         <h2 class="section-title smaller">ЧОМУ ВИ ПОВИННІ ОБРАТИ САМЕ НАС</h2>
         <div class="advantages-container">
             <div class="advantages-grid">
@@ -1642,8 +1693,8 @@
 
     <!--Секція з галереєю-->
 
-    <section class="gallery section" id="gallery">
-        <h2>Галерея</h2>
+    <section class="gallery section-gallery animate-on-scroll" id="gallery">
+        <h2>Наші фото</h2>
         <div class="gallery-grid">
             {% for img in gallery %}
             <div 
@@ -1663,7 +1714,7 @@
 
     <!--Секція з цінами-->
 
-    <section class="prices section" id="prices">
+    <section class="prices section-price animate-on-scroll" id="prices">
         <h2>Ціни на послуги</h2>
         <div class="card-grid">
             {% for service in services %}
@@ -1690,13 +1741,13 @@
 
 <!--Кінець секції з цінами-->
 
-    <section class="about-us section" id="about-us">
+    <section class="about-us section animate-on-scroll" id="about-us">
         <h2 class="section-title">Про нас</h2>
         <p>Наша компанія понад 20 років спеціалізується на професійному утепленні квартир, будинків та будь-яких об'єктів, що потребують теплоізоляції. Виконуємо висотні роботи, герметизацію міжпанельних швів, оздоблення фасадів, фарбування, монтаж козирьків та відливів. Гарантуємо якість, довговічність і комфорт у кожному проєкті.</p>
     </section>
 
     <!--Секція з відгуками-->
-    <section class="reviews-section">
+    <section class="reviews-section animate-on-scroll">
     <h2 class="reviews-title">Відгуки від<br>наших клієнтів</h2>
     <div class="reviews-container">
         <div class="review-box">
@@ -1729,7 +1780,7 @@
         <img class="modal-content" id="modalImage">
     </div>
 
-    <section class="contact section" id="contact">
+    <section class="contact section-contact animate-on-scroll" id="contact">
         <h2>Зв'яжіться з нами</h2>
         <form class="contact-form" id="contact-form">
             <input type="text" name="name" placeholder="Ваше ім'я" required>
@@ -1847,6 +1898,35 @@
             document.querySelector('nav ul').classList.remove('active');
         });
     });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const elements = document.querySelectorAll('.animate-on-scroll');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // щоб не повторювалось
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        elements.forEach(el => observer.observe(el));
+    });
+
+    window.addEventListener('scroll', () => {
+    const hero = document.querySelector('.hero');
+    const heroBottom = hero.getBoundingClientRect().bottom;
+
+    if (heroBottom <= 0) {
+        document.body.style.backgroundImage = "url('images/brick-wall53167367278413647162.png')";
+    } else {
+        document.body.style.backgroundImage = "url('images/Fasad.jpg')";
+    }
+    });
+
 </script>
 </body>
 </html>
