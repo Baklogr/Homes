@@ -1,9 +1,11 @@
-from flask import Flask, render_template, request, redirect, flash, send_from_directory, session, url_for
+from flask import Flask, render_template, request, redirect, flash, send_from_directory, session, url_for, g
 import json
 import os
 from werkzeug.utils import secure_filename
+from flask_mobility import Mobility
 
 app = Flask(__name__, template_folder='.')
+Mobility(app)
 app.secret_key = 'секрет'
 
 DATA_FILE = 'price.json'
@@ -36,6 +38,11 @@ def load_credentials():
         "password": "admin123"
     }
 
+def is_mobile(request):
+    user_agent = request.headers.get('User-Agent', '').lower()
+    mobile_keywords = ['iphone', 'ipod', 'android', 'blackberry', 'windows phone']
+    return any(keyword in user_agent for keyword in mobile_keywords)
+
 @app.route('/images/<path:filename>')
 def custom_static_images(filename):
     return send_from_directory(IMAGES_FOLDER, filename)
@@ -43,6 +50,8 @@ def custom_static_images(filename):
 @app.route('/')
 def index():
     data = load_data()
+    if is_mobile(request):
+        return render_template('mobile.html', services=data['services'], gallery=data.get('gallery', []))
     return render_template('index.html', services=data['services'], gallery=data.get('gallery', []))
 
 @app.route('/login', methods=['GET', 'POST'])
